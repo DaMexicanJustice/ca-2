@@ -7,7 +7,7 @@ package facade;
 
 import entity.InfoEntity;
 import entity.Person;
-import java.awt.List;
+import java.util.List;
 
 /**
  *
