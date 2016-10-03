@@ -19,17 +19,17 @@ import java.util.List;
  */
 public interface IBigBadInterface {
     public Address getAddressById(int id);
-    public Address addAddress(InfoEntity ie);
+    public Address persistAddress(Address a);
     public Company getCompanyByCvr(String cvr);
-    public Company addCompany(InfoEntity ie);
+    public Company persistCompany(Company c);
     public List getCompanies();
-    List getHobbies(int id);
-    Hobby addHobby(InfoEntity ie);
+    public List getHobbies(int id);
+    public Hobby persistHobby(Hobby h);
     public int getInfoEntityById(int id);
     public Person getPersonById(int id);
     public List getPeople();
     public List getPeopleIn(int zipcode);
-    public Person persistPerson(Person p);
     public List getPhonesById(int id);
-    public Phone addPhone(InfoEntity ie);
+    public Person persistPerson(Person p);
+    public Phone persistPhone(Phone p);
 }

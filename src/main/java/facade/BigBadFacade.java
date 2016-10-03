@@ -46,8 +46,14 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Company addCompany(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Company persistCompany(Company c) {
+        EntityManager em = emf.createEntityManager();
+        em.persist(c);
+        em.flush();
+        em.close();
+        
+        return c;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -64,8 +70,14 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Hobby addHobby(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Hobby persistHobby(Hobby h) {
+        EntityManager em = emf.createEntityManager();
+        em.persist(h);
+        em.flush();
+        em.close();
+        
+        return h;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
@@ -122,12 +134,26 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Phone addPhone(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Phone persistPhone(Phone p) {
+        EntityManager em = emf.createEntityManager();
+        
+        em.persist(p);
+        em.flush();
+        em.close();
+        
+        return p;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Address addAddress(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Address persistAddress(Address a) {
+        EntityManager em = emf.createEntityManager();
+        
+        em.persist(a);
+        em.flush();
+        em.close();
+        
+        return a;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
