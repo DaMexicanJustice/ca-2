@@ -8,7 +8,7 @@
     <class>entity.Phone</class>
     <class>entity.Company</class>
     <class>entity.Address</class>
-    <class>entity.InfoEntity</class>
+    <class>entity.Infoentity</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ca2?zeroDateTimeBehavior=convertToNull"/>

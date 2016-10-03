@@ -8,7 +8,7 @@ package facade;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
-import entity.InfoEntity;
+import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
 import java.util.List;
@@ -19,17 +19,17 @@ import java.util.List;
  */
 public interface IBigBadInterface {
     public Address getAddressById(int id);
-    public Address addAddress(InfoEntity ie);
+    public Address addAddress(Infoentity ie);
     public Company getCompanyByCvr(String cvr);
-    public Company addCompany(InfoEntity ie);
+    public Company addCompany(Infoentity ie);
     public List getCompanies();
     List getHobbies(int id);
-    Hobby addHobby(InfoEntity ie);
+    Hobby addHobby(Infoentity ie);
     public int getInfoEntityById(int id);
     public Person getPersonById(int id);
     public List getPeople();
     public List getPeopleIn(int zipcode);
-    public Person addPerson(InfoEntity ie);
+    public Person addPerson(Infoentity ie);
     public List getPhonesById(int id);
-    public Phone addPhone(InfoEntity ie);
+    public Phone addPhone(Infoentity ie);
 }

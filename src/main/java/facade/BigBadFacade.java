@@ -8,7 +8,7 @@ package facade;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
-import entity.InfoEntity;
+import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
 import java.util.List;
@@ -46,7 +46,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Company addCompany(InfoEntity ie) {
+    public Company addCompany(Infoentity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -64,14 +64,14 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Hobby addHobby(InfoEntity ie) {
+    public Hobby addHobby(Infoentity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
     public int getInfoEntityById(int id) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<InfoEntity> result = em.createNamedQuery("Infoentity.findById", InfoEntity.class);
+        TypedQuery<Infoentity> result = em.createNamedQuery("Infoentity.findById", Infoentity.class);
         int tmp = result.setParameter("id", id).getSingleResult().getId();
         em.close();
         return tmp;
@@ -100,7 +100,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Person addPerson(InfoEntity ie) {
+    public Person addPerson(Infoentity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -115,12 +115,12 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Phone addPhone(InfoEntity ie) {
+    public Phone addPhone(Infoentity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Address addAddress(InfoEntity ie) {
+    public Address addAddress(Infoentity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
