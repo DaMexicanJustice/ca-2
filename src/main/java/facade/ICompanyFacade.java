@@ -9,6 +9,8 @@ package facade;
  *
  * @author xboxm
  */
-public class DeleteMe {
-    
+public interface ICompanyFacade {
+    Company getCompanyById(String cvr);
+    Company addCompany(InfoEntity ie);
+    List getCompanies();
 }
