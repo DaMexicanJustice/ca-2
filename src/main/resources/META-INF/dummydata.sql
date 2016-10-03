@@ -10,6 +10,7 @@
 
 USE ca2;
 
+
 CREATE TABLE cityinfo (
     zipcode INT PRIMARY KEY,
     city VARCHAR(50) UNIQUE
@@ -26,6 +27,7 @@ CREATE TABLE company (
     description VARCHAR(200),
     no_of_employees INT,
     market_value INT,
+    fk_id INT,
     FOREIGN KEY (fk_id) REFERENCES infoentity(id)
 );
 
@@ -46,6 +48,7 @@ CREATE TABLE hobby(
 CREATE TABLE phone (
     pnum VARCHAR(8) PRIMARY KEY,
     description VARCHAR(50),
+    fk_id INT,
     FOREIGN KEY(fk_id) REFERENCES infoentity(id)
 );
 
