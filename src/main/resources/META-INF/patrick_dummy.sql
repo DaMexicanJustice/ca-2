@@ -159,3 +159,453 @@ INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
 INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
+/* 25 */
+INSERT INTO infoentity (email) VALUES ("test@tester.dk");
+INSERT INTO person (firstName, lastName, fk_id) VALUES ("Riki", "Xenoblade", 1);
+INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing console games", 1);
+INSERT INTO phone(pnum, description, fk_id) VALUES ("12345678", "Cell phone", 1);
+INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Frontier Village 4th level", "The wooden house by the wall", 1, 1000);
