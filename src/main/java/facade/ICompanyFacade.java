@@ -14,7 +14,7 @@ import java.util.List;
  * @author xboxm
  */
 public interface ICompanyFacade {
-    public Company getCompanyById(String cvr);
+    public Company getCompanyByCvr(String cvr);
     public Company addCompany(InfoEntity ie);
     public List getCompanies();
 }
