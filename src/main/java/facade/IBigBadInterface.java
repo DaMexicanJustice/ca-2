@@ -8,8 +8,10 @@ package facade;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
+import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +22,7 @@ public interface IBigBadInterface {
 
     public Address getAddressById(int id);
 
-    public Address persistAddress(Address a);
+    public Address persistAddress(Address a, Infoentity ie);
 
     public Company getCompanyByCvr(String cvr);
 
@@ -28,7 +30,7 @@ public interface IBigBadInterface {
 
     public List getCompanies();
 
-    public List getHobbies(int id);
+    public ArrayList getHobbies(int id);
 
     public Hobby persistHobby(Hobby h);
     
@@ -44,5 +46,5 @@ public interface IBigBadInterface {
 
     public Person persistPerson(Person p);
 
-    public Phone persistPhone(Phone p);
+    public Phone persistPhone(Phone p, Infoentity ie);
 }

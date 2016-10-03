@@ -11,6 +11,8 @@ import entity.Hobby;
 import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,7 +51,9 @@ public class BigBadFacade implements IBigBadInterface {
     @Override
     public Company persistCompany(Company c) {
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         em.persist(c);
+        em.getTransaction().commit();
         em.flush();
         em.close();
 
@@ -65,19 +69,24 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public List getHobbies(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList getHobbies(int id) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyid", Hobby.class);
+        Hobby hobby = result.setParameter("hobbyid", id).getSingleResult();
+        ArrayList<Hobby> hobbies =  new ArrayList(hobby.getFkId().getHobbyCollection());
+        return hobbies;
     }
 
     @Override
     public Hobby persistHobby(Hobby h) {
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         em.persist(h);
+        em.getTransaction().commit();
         em.flush();
         em.close();
 
         return h;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -87,7 +96,6 @@ public class BigBadFacade implements IBigBadInterface {
         int tmp = result.setParameter("id", id).getSingleResult().getId();
         em.close();
         return tmp;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -115,12 +123,13 @@ public class BigBadFacade implements IBigBadInterface {
     public Person persistPerson(Person p) {
 
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         em.persist(p);
+        em.getTransaction().commit();
         em.flush();
         em.close();
 
         return p;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -130,30 +139,36 @@ public class BigBadFacade implements IBigBadInterface {
         List<Phone> tmp = result.setParameter("addressid", id).getResultList();
         em.close();
         return tmp;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Phone persistPhone(Phone p) {
+    public Phone persistPhone(Phone p, Infoentity ie) {
         EntityManager em = emf.createEntityManager();
-
-        em.persist(p);
+        
+        Collection<Phone> phones = ie.getPhoneCollection();
+        phones.add(p);
+        em.getTransaction().begin();
+        em.persist(ie);
+        em.getTransaction().commit();
         em.flush();
         em.close();
 
         return p;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Address persistAddress(Address a) {
+    public Address persistAddress(Address a, Infoentity ie) {
         EntityManager em = emf.createEntityManager();
-
-        em.persist(a);
+        
+        Collection<Address> addresses = ie.getAddressCollection();
+        addresses.add(a);
+        
+        em.getTransaction().begin();
+        em.persist(ie);
+        em.getTransaction().commit();
         em.flush();
         em.close();
 
         return a;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

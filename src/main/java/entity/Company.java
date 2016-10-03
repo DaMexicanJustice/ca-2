@@ -34,10 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Company.findByDescription", query = "SELECT c FROM Company c WHERE c.description = :description"),
     @NamedQuery(name = "Company.findByNoOfEmployees", query = "SELECT c FROM Company c WHERE c.noOfEmployees = :noOfEmployees"),
     @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue")})
-public class Company implements Serializable {
+public class Company extends Infoentity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "cid")
