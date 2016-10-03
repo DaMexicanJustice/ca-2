@@ -16,13 +16,13 @@ CREATE TABLE cityinfo (
 );
 
 CREATE TABLE infoentity (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE
 );
 
 CREATE TABLE phone (
     pnum VARCHAR(8) PRIMARY KEY,
-    description VARCHAR(50)
+    description VARCHAR(50),
     FOREIGN KEY(fk_id) REFERENCES infoentity(id)
 );
 
