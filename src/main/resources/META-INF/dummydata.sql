@@ -16,7 +16,7 @@ CREATE TABLE cityinfo (
 );
 
 CREATE TABLE infoentity (
-    id int PRIMARY KEY,
+    id INT PRIMARY KEY,
     email VARCHAR(50) UNIQUE
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE hobby(
 );
 
 CREATE TABLE address (
-    street varchar(40),
+    street VARCHAR(40),
     additionalinfo VARCHAR(200),
     fk_id INT,
     fk_zipcode INT,
