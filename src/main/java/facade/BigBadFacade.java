@@ -6,11 +6,13 @@
 package facade;
 
 import entity.Address;
+import entity.Cityinfo;
 import entity.Company;
 import entity.Hobby;
 import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -107,8 +109,27 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public List getPeopleIn(int zipcode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList getPeopleIn(int zipcode) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Cityinfo> res = em.createNamedQuery("Cityinfo.findByZipcode", Cityinfo.class);
+        Cityinfo tmp = res.getSingleResult();
+        
+        ArrayList<Address> potentialAnswers = new ArrayList(tmp.getAddressCollection());
+        
+        
+        em.flush();
+        em.close();
+        
+        ArrayList<Infoentity> finalList = new ArrayList<>();
+        
+        for(int i = 0; i != potentialAnswers.size(); i++) {
+            if(potentialAnswers.get(i).getFkId().getTypeof().equals("person")) {
+                finalList.add(potentialAnswers.get(i).getFkId());
+            }
+        }
+        
+        return finalList;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

@@ -38,7 +38,7 @@ public interface IBigBadInterface {
 
     public List getPeople();
 
-    public List getPeopleIn(int zipcode);
+    public ArrayList getPeopleIn(int zipcode);
 
     public List getPhonesById(int id);
 
