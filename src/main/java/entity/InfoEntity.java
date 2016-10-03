@@ -9,10 +9,13 @@ import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -23,15 +26,18 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Lasse
+ * @author xboxm
  */
 @Entity
 @Table(name = "infoentity")
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="typeof")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Infoentity.findAll", query = "SELECT i FROM Infoentity i"),
     @NamedQuery(name = "Infoentity.findById", query = "SELECT i FROM Infoentity i WHERE i.id = :id"),
-    @NamedQuery(name = "Infoentity.findByEmail", query = "SELECT i FROM Infoentity i WHERE i.email = :email")})
+    @NamedQuery(name = "Infoentity.findByEmail", query = "SELECT i FROM Infoentity i WHERE i.email = :email"),
+    @NamedQuery(name = "Infoentity.findByTypeof", query = "SELECT i FROM Infoentity i WHERE i.typeof = :typeof")})
 public class InfoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,14 +50,13 @@ public class InfoEntity implements Serializable {
     @Size(max = 50)
     @Column(name = "email")
     private String email;
+    @Size(max = 20)
+    @Column(name = "typeof")
+    private String typeof;
     @OneToMany(mappedBy = "fkId")
     private Collection<Address> addressCollection;
     @OneToMany(mappedBy = "fkId")
     private Collection<Phone> phoneCollection;
-    @OneToMany(mappedBy = "fkId")
-    private Collection<Person> personCollection;
-    @OneToMany(mappedBy = "fkId")
-    private Collection<Company> companyCollection;
     @OneToMany(mappedBy = "fkId")
     private Collection<Hobby> hobbyCollection;
 
@@ -78,6 +83,14 @@ public class InfoEntity implements Serializable {
         this.email = email;
     }
 
+    public String getTypeof() {
+        return typeof;
+    }
+
+    public void setTypeof(String typeof) {
+        this.typeof = typeof;
+    }
+
     @XmlTransient
     public Collection<Address> getAddressCollection() {
         return addressCollection;
@@ -94,24 +107,6 @@ public class InfoEntity implements Serializable {
 
     public void setPhoneCollection(Collection<Phone> phoneCollection) {
         this.phoneCollection = phoneCollection;
-    }
-
-    @XmlTransient
-    public Collection<Person> getPersonCollection() {
-        return personCollection;
-    }
-
-    public void setPersonCollection(Collection<Person> personCollection) {
-        this.personCollection = personCollection;
-    }
-
-    @XmlTransient
-    public Collection<Company> getCompanyCollection() {
-        return companyCollection;
-    }
-
-    public void setCompanyCollection(Collection<Company> companyCollection) {
-        this.companyCollection = companyCollection;
     }
 
     @XmlTransient

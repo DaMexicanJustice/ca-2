@@ -8,28 +8,27 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Lasse
+ * @author xboxm
  */
 @Entity
 @Table(name = "company")
+@DiscriminatorValue("company")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c"),
-    @NamedQuery(name = "Company.findByCompanyid", query = "SELECT c FROM Company c WHERE c.companyid = :companyid"),
+    @NamedQuery(name = "Company.findByCid", query = "SELECT c FROM Company c WHERE c.cid = :cid"),
     @NamedQuery(name = "Company.findByCvr", query = "SELECT c FROM Company c WHERE c.cvr = :cvr"),
     @NamedQuery(name = "Company.findByCname", query = "SELECT c FROM Company c WHERE c.cname = :cname"),
     @NamedQuery(name = "Company.findByDescription", query = "SELECT c FROM Company c WHERE c.description = :description"),
@@ -39,10 +38,10 @@ public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "companyid")
-    private Integer companyid;
+    @NotNull
+    @Column(name = "cid")
+    private Integer cid;
     @Size(max = 8)
     @Column(name = "cvr")
     private String cvr;
@@ -56,23 +55,20 @@ public class Company implements Serializable {
     private Integer noOfEmployees;
     @Column(name = "market_value")
     private Integer marketValue;
-    @JoinColumn(name = "fk_id", referencedColumnName = "id")
-    @ManyToOne
-    private InfoEntity fkId;
 
     public Company() {
     }
 
-    public Company(Integer companyid) {
-        this.companyid = companyid;
+    public Company(Integer cid) {
+        this.cid = cid;
     }
 
-    public Integer getCompanyid() {
-        return companyid;
+    public Integer getCid() {
+        return cid;
     }
 
-    public void setCompanyid(Integer companyid) {
-        this.companyid = companyid;
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
     public String getCvr() {
@@ -115,18 +111,10 @@ public class Company implements Serializable {
         this.marketValue = marketValue;
     }
 
-    public InfoEntity getFkId() {
-        return fkId;
-    }
-
-    public void setFkId(InfoEntity fkId) {
-        this.fkId = fkId;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (companyid != null ? companyid.hashCode() : 0);
+        hash += (cid != null ? cid.hashCode() : 0);
         return hash;
     }
 
@@ -137,7 +125,7 @@ public class Company implements Serializable {
             return false;
         }
         Company other = (Company) object;
-        if ((this.companyid == null && other.companyid != null) || (this.companyid != null && !this.companyid.equals(other.companyid))) {
+        if ((this.cid == null && other.cid != null) || (this.cid != null && !this.cid.equals(other.cid))) {
             return false;
         }
         return true;
@@ -145,7 +133,7 @@ public class Company implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Company[ companyid=" + companyid + " ]";
+        return "entity.Company[ cid=" + cid + " ]";
     }
     
 }

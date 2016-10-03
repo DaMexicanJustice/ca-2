@@ -8,61 +8,57 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Lasse
+ * @author xboxm
  */
 @Entity
 @Table(name = "person")
+@DiscriminatorValue("person")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
-    @NamedQuery(name = "Person.findByPersonid", query = "SELECT p FROM Person p WHERE p.personid = :personid"),
+    @NamedQuery(name = "Person.findByPid", query = "SELECT p FROM Person p WHERE p.pid = :pid"),
     @NamedQuery(name = "Person.findByFirstName", query = "SELECT p FROM Person p WHERE p.firstName = :firstName"),
     @NamedQuery(name = "Person.findByLastName", query = "SELECT p FROM Person p WHERE p.lastName = :lastName")})
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "personid")
-    private Integer personid;
+    @NotNull
+    @Column(name = "pid")
+    private Integer pid;
     @Size(max = 40)
     @Column(name = "firstName")
     private String firstName;
     @Size(max = 40)
     @Column(name = "lastName")
     private String lastName;
-    @JoinColumn(name = "fk_id", referencedColumnName = "id")
-    @ManyToOne
-    private InfoEntity fkId;
 
     public Person() {
     }
 
-    public Person(Integer personid) {
-        this.personid = personid;
+    public Person(Integer pid) {
+        this.pid = pid;
     }
 
-    public Integer getPersonid() {
-        return personid;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setPersonid(Integer personid) {
-        this.personid = personid;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     public String getFirstName() {
@@ -81,18 +77,10 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
-    public InfoEntity getFkId() {
-        return fkId;
-    }
-
-    public void setFkId(InfoEntity fkId) {
-        this.fkId = fkId;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (personid != null ? personid.hashCode() : 0);
+        hash += (pid != null ? pid.hashCode() : 0);
         return hash;
     }
 
@@ -103,7 +91,7 @@ public class Person implements Serializable {
             return false;
         }
         Person other = (Person) object;
-        if ((this.personid == null && other.personid != null) || (this.personid != null && !this.personid.equals(other.personid))) {
+        if ((this.pid == null && other.pid != null) || (this.pid != null && !this.pid.equals(other.pid))) {
             return false;
         }
         return true;
@@ -111,7 +99,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Person[ personid=" + personid + " ]";
+        return "entity.Person[ pid=" + pid + " ]";
     }
     
 }
