@@ -21,7 +21,6 @@ CREATE TABLE infoentity (
 );
 
 CREATE TABLE company (
-	companyid INT PRIMARY KEY AUTO_INCREMENT,
     cvr VARCHAR(8) UNIQUE,
     cname VARCHAR(100),
     description VARCHAR(200),
@@ -32,7 +31,6 @@ CREATE TABLE company (
 );
 
 CREATE TABLE person (
-	personid INT PRIMARY KEY AUTO_INCREMENT,
     firstName VARCHAR(40),
     lastName VARCHAR(40),
     fk_id INT,
@@ -40,7 +38,7 @@ CREATE TABLE person (
 );
 
 CREATE TABLE hobby(
-	hobbyid INT PRIMARY KEY AUTO_INCREMENT,
+    hobbyid INT PRIMARY KEY AUTO_INCREMENT,
     hobbyName VARCHAR(40),
     description VARCHAR(100),
     fk_id INT,
@@ -55,7 +53,7 @@ CREATE TABLE phone (
 );
 
 CREATE TABLE address (
-	addressid INT PRIMARY KEY AUTO_INCREMENT,
+    addressid INT PRIMARY KEY AUTO_INCREMENT,
     street VARCHAR(40),
     additionalinfo VARCHAR(200),
     fk_id INT,
