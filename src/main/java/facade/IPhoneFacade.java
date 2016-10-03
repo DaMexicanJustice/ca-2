@@ -14,6 +14,6 @@ import javax.validation.constraints.Past.List;
  * @author xboxm
  */
 public interface IPhoneFacade {
-    List getPhonesById(int id);
-    Phone addPhone(InfoEntity ie);
+    public List getPhonesById(int id);
+    public Phone addPhone(InfoEntity ie);
 }

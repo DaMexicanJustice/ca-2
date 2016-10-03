@@ -14,7 +14,7 @@ import javax.validation.constraints.Past.List;
  * @author xboxm
  */
 public interface ICompanyFacade {
-    Company getCompanyById(String cvr);
-    Company addCompany(InfoEntity ie);
-    List getCompanies();
+    public Company getCompanyById(String cvr);
+    public Company addCompany(InfoEntity ie);
+    public List getCompanies();
 }

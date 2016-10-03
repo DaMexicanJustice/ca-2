@@ -14,8 +14,8 @@ import java.awt.List;
  * @author xboxm
  */
 public interface IPersonFacade {
-    Person getPersonById(int id);
-    List getPeople();
-    List getPeopleIn(int zipcode);
-    Person addPerson(InfoEntity ie);
+    public Person getPersonById(int id);
+    public List getPeople();
+    public List getPeopleIn(int zipcode);
+    public Person addPerson(InfoEntity ie);
 }

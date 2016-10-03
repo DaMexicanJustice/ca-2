@@ -5,14 +5,11 @@
  */
 package facade;
 
-import entity.Address;
-import entity.InfoEntity;
-
 /**
  *
  * @author xboxm
  */
-public interface IAddressFacade {
-    public Address getAddressById(int id);
-    public Address addAddress(InfoEntity ie);
+public interface IInfoEntityFacade {
+    public int getId();
+    public String getEmail();
 }
