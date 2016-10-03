@@ -7,16 +7,30 @@ package facade;
 
 import entity.Address;
 import entity.InfoEntity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author xboxm
  */
 public class AddressFacade implements IAddressFacade {
+    
+    private final EntityManagerFactory emf;
+
+    public AddressFacade(EntityManagerFactory tmp) {
+        emf = tmp;
+    }
 
     @Override
     public Address getAddressById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Address> result = em.createNamedQuery("Address.findByAddressid", Address.class);
+        Address tmp = result.setParameter("addressid", id).getSingleResult();
+        em.close();
+        return tmp;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
