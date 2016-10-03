@@ -51,7 +51,7 @@ public class Address implements Serializable {
     private Cityinfo fkZipcode;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
     @ManyToOne
-    private Infoentity fkId;
+    private InfoEntity fkId;
 
     public Address() {
     }
@@ -92,11 +92,11 @@ public class Address implements Serializable {
         this.fkZipcode = fkZipcode;
     }
 
-    public Infoentity getFkId() {
+    public InfoEntity getFkId() {
         return fkId;
     }
 
-    public void setFkId(Infoentity fkId) {
+    public void setFkId(InfoEntity fkId) {
         this.fkId = fkId;
     }
 

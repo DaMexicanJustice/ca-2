@@ -5,6 +5,10 @@
  */
 package facade;
 
+import entity.Hobby;
+import entity.InfoEntity;
+import javax.validation.constraints.Past.List;
+
 /**
  *
  * @author xboxm

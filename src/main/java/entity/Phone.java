@@ -44,7 +44,7 @@ public class Phone implements Serializable {
     private String description;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
     @ManyToOne
-    private Infoentity fkId;
+    private InfoEntity fkId;
 
     public Phone() {
     }
@@ -69,11 +69,11 @@ public class Phone implements Serializable {
         this.description = description;
     }
 
-    public Infoentity getFkId() {
+    public InfoEntity getFkId() {
         return fkId;
     }
 
-    public void setFkId(Infoentity fkId) {
+    public void setFkId(InfoEntity fkId) {
         this.fkId = fkId;
     }
 

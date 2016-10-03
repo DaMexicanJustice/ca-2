@@ -5,13 +5,17 @@
  */
 package facade;
 
+import entity.InfoEntity;
+import entity.Person;
+import java.awt.List;
+
 /**
  *
  * @author xboxm
  */
 public interface IPersonFacade {
     Person getPersonById(int id);
-    List<Person> getPeople();
-    List<Person> getPeopleIn(int zipcode);
+    List getPeople();
+    List getPeopleIn(int zipcode);
     Person addPerson(InfoEntity ie);
 }

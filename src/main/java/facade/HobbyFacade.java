@@ -5,6 +5,10 @@
  */
 package facade;
 
+import entity.Hobby;
+import entity.InfoEntity;
+import javax.validation.constraints.Past.List;
+
 /**
  *
  * @author xboxm
@@ -20,5 +24,6 @@ public class HobbyFacade implements IHobbyFacade {
     public Hobby addHobby(InfoEntity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }

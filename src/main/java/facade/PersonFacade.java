@@ -5,6 +5,10 @@
  */
 package facade;
 
+import entity.InfoEntity;
+import entity.Person;
+import java.awt.List;
+
 /**
  *
  * @author xboxm
@@ -17,12 +21,12 @@ public class PersonFacade implements IPersonFacade {
     }
 
     @Override
-    public Object getPeople() {
+    public List getPeople() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object getPeopleIn(int zipcode) {
+    public List getPeopleIn(int zipcode) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -30,5 +34,7 @@ public class PersonFacade implements IPersonFacade {
     public Person addPerson(InfoEntity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

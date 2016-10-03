@@ -5,6 +5,9 @@
  */
 package facade;
 
+import entity.Address;
+import entity.InfoEntity;
+
 /**
  *
  * @author xboxm

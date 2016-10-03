@@ -58,7 +58,7 @@ public class Company implements Serializable {
     private Integer marketValue;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
     @ManyToOne
-    private Infoentity fkId;
+    private InfoEntity fkId;
 
     public Company() {
     }
@@ -115,11 +115,11 @@ public class Company implements Serializable {
         this.marketValue = marketValue;
     }
 
-    public Infoentity getFkId() {
+    public InfoEntity getFkId() {
         return fkId;
     }
 
-    public void setFkId(Infoentity fkId) {
+    public void setFkId(InfoEntity fkId) {
         this.fkId = fkId;
     }
 
