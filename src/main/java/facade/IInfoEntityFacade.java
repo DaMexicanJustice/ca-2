@@ -11,5 +11,4 @@ package facade;
  */
 public interface IInfoEntityFacade {
     public int getInfoEntityById(int id);
-    public String getEmailForInfoEntity();
 }
