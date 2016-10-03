@@ -14,18 +14,27 @@ import entity.Phone;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 /**
  *
- * @author xboxm
+ * @author Lasse
  */
-public class CompanyFacade implements IBigBadInterface {
-    
-    private EntityManagerFactory emf;
+public class BigBadFacade implements IBigBadInterface {
+    private final EntityManagerFactory emf;
 
-    public CompanyFacade(EntityManagerFactory emf) {
-        this.emf = emf;
+    public BigBadFacade(EntityManagerFactory tmp) {
+        emf = tmp;
+    }
+    
+    @Override
+    public Address getAddressById(int id) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Address> result = em.createNamedQuery("Address.findByAddressid", Address.class);
+        Address tmp = result.setParameter("addressid", id).getSingleResult();
+        em.close();
+        return tmp;
     }
     
     @Override
@@ -48,17 +57,7 @@ public class CompanyFacade implements IBigBadInterface {
         List <Company> companies = result.getResultList();
         return companies;
     }
-
-    @Override
-    public Address getAddressById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Address addAddress(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     @Override
     public List getHobbies(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -68,20 +67,31 @@ public class CompanyFacade implements IBigBadInterface {
     public Hobby addHobby(InfoEntity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public int getInfoEntityById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<InfoEntity> result = em.createNamedQuery("Infoentity.findById", InfoEntity.class);
+        int tmp = result.setParameter("id", id).getSingleResult().getId();
+        em.close();
+        return tmp;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
-    public Person getPersonById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Person getPersonById(int id) throws NoResultException {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Person> result = em.createNamedQuery("Person.findByPersonid", Person.class);
+        Person personFound = result.setParameter("personid", id).getSingleResult();
+        return personFound;
     }
 
     @Override
     public List getPeople() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Person> result = em.createNamedQuery("Person.findAll", Person.class);
+        List <Person> people = result.getResultList();
+        return people;
     }
 
     @Override
@@ -93,15 +103,24 @@ public class CompanyFacade implements IBigBadInterface {
     public Person addPerson(InfoEntity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public List getPhonesById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Phone> result = em.createNamedQuery("Phone.findByPnum", Phone.class);
+        List<Phone> tmp = result.setParameter("addressid", id).getResultList();
+        em.close();
+        return tmp;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Phone addPhone(InfoEntity ie) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public Address addAddress(InfoEntity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
