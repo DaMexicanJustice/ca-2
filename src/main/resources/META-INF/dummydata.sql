@@ -20,10 +20,13 @@ CREATE TABLE infoentity (
     email VARCHAR(50) UNIQUE
 );
 
-CREATE TABLE phone (
-    pnum VARCHAR(8) PRIMARY KEY,
-    description VARCHAR(50),
-    FOREIGN KEY(fk_id) REFERENCES infoentity(id)
+CREATE TABLE company (
+    vcr VARCHAR(8) UNIQUE,
+    cname VARCHAR(100),
+    description VARCHAR(200),
+    no_of_employees INT,
+    market_value INT,
+    FOREIGN KEY (fk_id) REFERENCES infoentity(id)
 );
 
 CREATE TABLE person (
@@ -40,6 +43,12 @@ CREATE TABLE hobby(
     FOREIGN KEY(fk_id) REFERENCES infoentity(id)
 );
 
+CREATE TABLE phone (
+    pnum VARCHAR(8) PRIMARY KEY,
+    description VARCHAR(50),
+    FOREIGN KEY(fk_id) REFERENCES infoentity(id)
+);
+
 CREATE TABLE address (
     street VARCHAR(40),
     additionalinfo VARCHAR(200),
@@ -49,11 +58,3 @@ CREATE TABLE address (
     FOREIGN KEY (fk_id) REFERENCES infoentity(id)
 );
 
-CREATE TABLE company (
-    vcr VARCHAR(8) UNIQUE,
-    cname VARCHAR(100),
-    description VARCHAR(200),
-    no_of_employees INT,
-    market_value INT,
-    FOREIGN KEY (fk_id) REFERENCES infoentity(id)
-);
