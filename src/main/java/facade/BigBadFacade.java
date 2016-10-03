@@ -8,7 +8,7 @@ package facade;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
-import entity.InfoEntity;
+import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
 import java.util.List;
@@ -46,6 +46,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
+<<<<<<< HEAD
     public Company persistCompany(Company c) {
         EntityManager em = emf.createEntityManager();
         em.persist(c);
@@ -54,6 +55,10 @@ public class BigBadFacade implements IBigBadInterface {
         
         return c;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public Company addCompany(Infoentity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> cc0240710a720f7697a22d551fafa7f5e0d7b125
     }
 
     @Override
@@ -70,6 +75,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
+<<<<<<< HEAD
     public Hobby persistHobby(Hobby h) {
         EntityManager em = emf.createEntityManager();
         em.persist(h);
@@ -78,12 +84,16 @@ public class BigBadFacade implements IBigBadInterface {
         
         return h;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public Hobby addHobby(Infoentity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> cc0240710a720f7697a22d551fafa7f5e0d7b125
     }
     
     @Override
     public int getInfoEntityById(int id) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<InfoEntity> result = em.createNamedQuery("Infoentity.findById", InfoEntity.class);
+        TypedQuery<Infoentity> result = em.createNamedQuery("Infoentity.findById", Infoentity.class);
         int tmp = result.setParameter("id", id).getSingleResult().getId();
         em.close();
         return tmp;
@@ -112,6 +122,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
+<<<<<<< HEAD
     public Person persistPerson(Person p) {
 
         EntityManager em = emf.createEntityManager();
@@ -121,6 +132,10 @@ public class BigBadFacade implements IBigBadInterface {
         
         return p;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public Person addPerson(Infoentity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> cc0240710a720f7697a22d551fafa7f5e0d7b125
     }
     
     @Override
@@ -134,6 +149,7 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
+<<<<<<< HEAD
     public Phone persistPhone(Phone p) {
         EntityManager em = emf.createEntityManager();
         
@@ -155,5 +171,14 @@ public class BigBadFacade implements IBigBadInterface {
         
         return a;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public Phone addPhone(Infoentity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Address addAddress(Infoentity ie) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> cc0240710a720f7697a22d551fafa7f5e0d7b125
     }
 }

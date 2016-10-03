@@ -8,7 +8,6 @@
  * Created: 03-10-2016
  */
 /* 50 */
-/* 50 */
 INSERT INTO infoentity (email) VALUES ("atest@tester.dk");
 INSERT INTO person (firstName, lastName, fk_id) VALUES ("Michael", "Veilis", 50);
 INSERT INTO hobby (hobbyName, description, fk_id) VALUES ("Gaming", "Playing pc games", 50);

@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Infoentity.findById", query = "SELECT i FROM Infoentity i WHERE i.id = :id"),
     @NamedQuery(name = "Infoentity.findByEmail", query = "SELECT i FROM Infoentity i WHERE i.email = :email"),
     @NamedQuery(name = "Infoentity.findByTypeof", query = "SELECT i FROM Infoentity i WHERE i.typeof = :typeof")})
-public class InfoEntity implements Serializable {
+public class Infoentity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -60,10 +60,10 @@ public class InfoEntity implements Serializable {
     @OneToMany(mappedBy = "fkId")
     private Collection<Hobby> hobbyCollection;
 
-    public InfoEntity() {
+    public Infoentity() {
     }
 
-    public InfoEntity(Integer id) {
+    public Infoentity(Integer id) {
         this.id = id;
     }
 
@@ -128,10 +128,10 @@ public class InfoEntity implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof InfoEntity)) {
+        if (!(object instanceof Infoentity)) {
             return false;
         }
-        InfoEntity other = (InfoEntity) object;
+        Infoentity other = (Infoentity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
