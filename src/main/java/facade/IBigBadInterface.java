@@ -29,7 +29,7 @@ public interface IBigBadInterface {
     public Person getPersonById(int id);
     public List getPeople();
     public List getPeopleIn(int zipcode);
-    public Person addPerson(InfoEntity ie);
+    public Person persistPerson(Person p);
     public List getPhonesById(int id);
     public Phone addPhone(InfoEntity ie);
 }

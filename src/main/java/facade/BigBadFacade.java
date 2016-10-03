@@ -100,8 +100,15 @@ public class BigBadFacade implements IBigBadInterface {
     }
 
     @Override
-    public Person addPerson(InfoEntity ie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Person persistPerson(Person p) {
+
+        EntityManager em = emf.createEntityManager();
+        em.persist(p);
+        em.flush();
+        em.close();
+        
+        return p;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
