@@ -18,11 +18,7 @@ CREATE TABLE cityinfo (
 CREATE TABLE infoentity (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE,
-    typeof VARCHAR(20),
-    fk_pnum VARCHAR(8),
-    fk_addressid INT,
-    FOREIGN KEY (fk_pnum) REFERENCES phone(pnum),
-    FOREIGN KEY (fk_addressid) REFERENCES address(addressid)
+    typeof VARCHAR(20)
 );
 
 CREATE TABLE company (
