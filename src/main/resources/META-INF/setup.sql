@@ -17,24 +17,27 @@ CREATE TABLE cityinfo (
 
 CREATE TABLE infoentity (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(50) UNIQUE
+    email VARCHAR(50) UNIQUE,
+    typeof VARCHAR(20),
+    fk_pnum VARCHAR(8),
+    fk_addressid INT,
+    FOREIGN KEY (fk_pnum) REFERENCES phone(pnum),
+    FOREIGN KEY (fk_addressid) REFERENCES address(addressid)
 );
 
 CREATE TABLE company (
+    cid INT PRIMARY KEY REFERENCES infoentitiy(id),
     cvr VARCHAR(8) UNIQUE,
     cname VARCHAR(100),
     description VARCHAR(200),
     no_of_employees INT,
-    market_value INT,
-    fk_id INT,
-    FOREIGN KEY (fk_id) REFERENCES infoentity(id)
+    market_value INT
 );
 
 CREATE TABLE person (
+    pid INT PRIMARY KEY REFERENCES infoentitiy(id),
     firstName VARCHAR(40),
-    lastName VARCHAR(40),
-    fk_id INT,
-    FOREIGN KEY(fk_id) REFERENCES infoentity(id)
+    lastName VARCHAR(40)
 );
 
 CREATE TABLE hobby(
