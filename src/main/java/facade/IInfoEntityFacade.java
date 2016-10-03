@@ -10,6 +10,6 @@ package facade;
  * @author xboxm
  */
 public interface IInfoEntityFacade {
-    public int getId();
-    public String getEmail();
+    public int getInfoEntityById(int id);
+    public String getEmailForInfoEntity();
 }

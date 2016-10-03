@@ -12,13 +12,12 @@ package facade;
 public class InfoEntityFacade implements IInfoEntityFacade {
 
     @Override
-    public int getId() {
+    public int getInfoEntityById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getEmail() {
+    public String getEmailForInfoEntity(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
