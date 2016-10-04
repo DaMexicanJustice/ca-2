@@ -11,8 +11,8 @@
 USE ca2;
 
 CREATE TABLE cityinfo (
-    zipcode INT PRIMARY KEY,
-    city VARCHAR(50) UNIQUE
+    zip VARCHAR(5) PRIMARY KEY,
+    city VARCHAR(50)
 );
 
 CREATE TABLE infoentity (
@@ -40,8 +40,8 @@ CREATE TABLE hobby(
     hobbyid INT PRIMARY KEY AUTO_INCREMENT,
     hobbyName VARCHAR(40),
     description VARCHAR(100),
-    fk_id INT,
-    FOREIGN KEY(fk_id) REFERENCES infoentity(id)
+    fk_pid INT,
+    FOREIGN KEY(fk_pid) REFERENCES person(pid)
 );
 
 CREATE TABLE phone (
@@ -56,8 +56,8 @@ CREATE TABLE address (
     street VARCHAR(40),
     additionalinfo VARCHAR(200),
     fk_id INT,
-    fk_zipcode INT,
-    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zipcode),
+    fk_zipcode VARCHAR(5),
+    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zip),
     FOREIGN KEY (fk_id) REFERENCES infoentity(id)
 );
 
