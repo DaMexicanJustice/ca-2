@@ -118,8 +118,7 @@ public class FacadeTest {
         List<Hobby> result = instance.getHobbies();
         
         System.out.println("JUNITTEST " + result.size());
-        assertTrue(false);
-        //assertTrue(result.get(0).getHobbyName().equals("Frodo"));
+        assertTrue(result.get(1).getHobbyName().equals("Frodo"));
     }
     @Test
     public void testPersistHobby() {
