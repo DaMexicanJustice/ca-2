@@ -66,6 +66,7 @@ public class Facade implements IFacade {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Company> result = em.createNamedQuery("Company.findAll", Company.class);
         List<Company> companies = result.getResultList();
+        em.close();
         return companies;
     }
 
@@ -162,31 +163,24 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Phone persistPhone(Phone p, Infoentity ie) {
+    public Phone persistPhone(Phone p) {
         EntityManager em = emf.createEntityManager();
         
-        Collection<Phone> phones = ie.getPhoneCollection();
-        phones.add(p);
         em.getTransaction().begin();
-        em.persist(ie);
+        em.persist(p);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return p;
     }
-
+    
     @Override
-    public Address persistAddress(Address a, Infoentity ie) {
+    public Address persistAddress(Address a) {
         EntityManager em = emf.createEntityManager();
         
-        Collection<Address> addresses = ie.getAddressCollection();
-        addresses.add(a);
-        
         em.getTransaction().begin();
-        em.persist(ie);
+        em.persist(a);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return a;
