@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Lasse
  */
-public interface IBigBadInterface {
+public interface IFacade {
 
     public Address getAddressById(int id);
 

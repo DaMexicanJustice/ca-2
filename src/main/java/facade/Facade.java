@@ -24,11 +24,11 @@ import javax.persistence.TypedQuery;
  *
  * @author Lasse
  */
-public class BigBadFacade implements IBigBadInterface {
+public class Facade implements IFacade {
 
     private final EntityManagerFactory emf;
 
-    public BigBadFacade(EntityManagerFactory tmp) {
+    public Facade(EntityManagerFactory tmp) {
         emf = tmp;
     }
 
