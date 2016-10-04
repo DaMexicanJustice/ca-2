@@ -30,7 +30,7 @@ public interface IFacade {
 
     public List getCompanies();
 
-    public ArrayList getHobbies(int id);
+    public List getHobbies();
 
     public Hobby persistHobby(Hobby h);
     

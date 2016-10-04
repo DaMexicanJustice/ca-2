@@ -71,11 +71,15 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public ArrayList getHobbies(int id) {
-        EntityManager em = emf.createEntityManager();
+    public List getHobbies() {
+        /*EntityManager em = emf.createEntityManager();
         TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyid", Hobby.class);
         Hobby hobby = result.setParameter("hobbyid", id).getSingleResult();
-        ArrayList<Hobby> hobbies =  new ArrayList(hobby.getFkId().getHobbyCollection());
+        ArrayList<Hobby> hobbies =  new ArrayList(hobby.getFkId().getHobbyCollection());*/
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findAll", Hobby.class);
+        List<Hobby> hobbies = result.getResultList();
+        em.close();
         return hobbies;
     }
 
@@ -85,7 +89,7 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         em.persist(h);
         em.getTransaction().commit();
-        em.flush();
+        //em.flush();
         em.close();
 
         return h;
@@ -147,7 +151,6 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         em.persist(p);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return p;
