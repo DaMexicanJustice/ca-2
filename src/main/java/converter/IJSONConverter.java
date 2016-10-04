@@ -23,8 +23,11 @@ public interface IJSONConverter {
     public String AddressCollectionToJSON(Collection<Address> address);
     public Person JSONToPerson(String json);
     public String PersonToJSON(Person p);
+    public String PersonContactInfoToJSON(Person p);
+    public String PersonCollectionToJSON(Collection<Person> people);
     public Company JSONToCompany(String json);
     public String CompanyToJSON(Company c);
+    public String CompanyContactInfoToJSON(Company c);
     public Hobby JSONToHobby(String json);
     public String HobbyListToJSON(Collection<Hobby> hobby);
 }
