@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
  */
 public class FacadeTest {
     
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceunit");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
     
     public FacadeTest() {
     }
@@ -102,29 +102,40 @@ public class FacadeTest {
         assertTrue(result.get(0).getCid() == 145);
     }
     
-/*
+
     @Test
     public void testGetHobbies() {
         System.out.println("getHobbies");
-        int id = 0;
-        Facade instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.getHobbies(id);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        Facade instance2 = new Facade(emf);
+        Hobby h = new Hobby();
+        h.setHobbyName("Frodo");
+        h.setDescription("A brave hobbyt");
+        instance2.persistHobby(h);
+        
+        Facade instance = new Facade(emf);
+        
+        List<Hobby> result = instance.getHobbies();
+        
+        System.out.println("JUNITTEST " + result.size());
+        assertTrue(false);
+        //assertTrue(result.get(0).getHobbyName().equals("Frodo"));
     }
-
     @Test
     public void testPersistHobby() {
         System.out.println("persistHobby");
-        Hobby h = null;
-        Facade instance = null;
-        Hobby expResult = null;
-        Hobby result = instance.persistHobby(h);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
+        
+        Hobby h = new Hobby();
 
+        Facade instance = new Facade(emf);
+        
+        h.setHobbyName("Hobby A");
+        h.setDescription("Hobbybeskrivelsen");
+        
+        Hobby result = instance.persistHobby(h);
+        assertEquals(h, result);
+    }
+/*
     @Test
     public void testGetInfoEntityById() {
         System.out.println("getInfoEntityById");
