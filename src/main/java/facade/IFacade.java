@@ -48,12 +48,12 @@ public interface IFacade {
 
     public Phone persistPhone(Phone p);
     
-    public void editPerson(Person p);
+    public Person editPerson(Person p);
     
-    public void editCompany(Company c);
+    public Company editCompany(Company c);
     
-    public void deletePerson(Person p);
+    public Person deletePerson(Person p);
     
-    public void deleteCompany(Company c);
+    public Company deleteCompany(Company c);
     
 }

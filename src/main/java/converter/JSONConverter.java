@@ -5,13 +5,17 @@
  */
 package converter;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
+import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -20,7 +24,27 @@ import java.util.Collection;
  */
 public class JSONConverter implements IJSONConverter {
     
-        private Gson gson = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+        private Gson gson = new com.google.gson.GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+
+        @Override
+        public boolean shouldSkipClass(Class<?> clazz) {
+            return (clazz == Infoentity.class);
+        }
+
+        /**
+          * Custom field exclusion goes here
+          */
+        @Override
+        public boolean shouldSkipField(FieldAttributes f) {
+            return false;
+        }
+
+     })
+    /**
+      * Use serializeNulls method if you want To serialize null values 
+      * By default, Gson does not serialize null values
+      */
+    .serializeNulls().setPrettyPrinting().create();
 
     @Override
     public Phone JSONToPhone(String json) {
@@ -32,7 +56,7 @@ public class JSONConverter implements IJSONConverter {
     // solution.
     @Override
     public String PhoneCollectionToJSON(Collection<Phone> phone) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gson.toJson(phone);
     }
 
     @Override
@@ -45,7 +69,7 @@ public class JSONConverter implements IJSONConverter {
     // solution.
     @Override
     public String AddressCollectionToJSON(Collection<Address> address) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gson.toJson(address);
     }
 
     @Override
@@ -80,9 +104,25 @@ public class JSONConverter implements IJSONConverter {
     @Override
     public String CompanyContactInfoToJSON(Company c) {
         JsonObject job = new JsonObject();
+        job.addProperty("email", c.getEmail());
+        job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
+        job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
         return gson.toJson(job);
     }
-
+    
+    @Override
+    public String CompaniesContactInfoToJSON(Collection<Company> companies) {
+        Collection<JsonObject> jobs = new ArrayList();
+        for (Company c : companies) {
+            JsonObject job = new JsonObject();
+            job.addProperty("email", c.getEmail());
+            job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
+            job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
+            jobs.add(job);
+        }
+        return gson.toJson(jobs);
+    }
+    
     @Override
     public Hobby JSONToHobby(String json) {
         return gson.fromJson(json, Hobby.class);
@@ -92,13 +132,13 @@ public class JSONConverter implements IJSONConverter {
     // from an infinite cycling between database entities with references to each other. Need to work on a
     // solution.
     @Override
-    public String HobbyListToJSON(Collection<Hobby> hobby) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String HobbyListToJSON(Collection<Hobby> hobbies) {
+        return gson.toJson(hobbies);
     }
     
     @Override
     public String PersonCollectionToJSON(Collection<Person> people) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gson.toJson(people);
     }
     
 }

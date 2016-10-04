@@ -190,22 +190,22 @@ public class Facade implements IFacade {
     }
     
     @Override
-    public void editPerson(Person p) {
-        
+    public Person editPerson(Person p) {
+        return null;
     }
     
     @Override
-    public void editCompany(Company c) {
-        
+    public Company editCompany(Company c) {
+        return null;
     }
     
     @Override
-    public void deletePerson(Person p) {
-        
+    public Person deletePerson(Person p) {
+        return null;
     }
     
     @Override
-    public void deleteCompany(Company c) {
-        
+    public Company deleteCompany(Company c) {
+        return null;
     }
 }
