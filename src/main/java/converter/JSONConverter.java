@@ -6,6 +6,7 @@
 package converter;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import entity.Address;
 import entity.Company;
 import entity.Hobby;
@@ -56,6 +57,15 @@ public class JSONConverter implements IJSONConverter {
     public String PersonToJSON(Person p) {
         return gson.toJson(p);
     }
+    
+    @Override
+    public String PersonContactInfoToJSON(Person p) {
+        JsonObject job = new JsonObject();
+        job.addProperty("email", p.getEmail());
+        job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
+        job.addProperty("address", gson.toJson(p.getAddressCollection()));
+        return gson.toJson(job);
+    }
 
     @Override
     public Company JSONToCompany(String json) {
@@ -65,6 +75,12 @@ public class JSONConverter implements IJSONConverter {
     @Override
     public String CompanyToJSON(Company c) {
         return gson.toJson(c);
+    }
+    
+    @Override
+    public String CompanyContactInfoToJSON(Company c) {
+        JsonObject job = new JsonObject();
+        return gson.toJson(job);
     }
 
     @Override
@@ -77,6 +93,11 @@ public class JSONConverter implements IJSONConverter {
     // solution.
     @Override
     public String HobbyListToJSON(Collection<Hobby> hobby) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public String PersonCollectionToJSON(Collection<Person> people) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
