@@ -47,4 +47,13 @@ public interface IBigBadInterface {
     public Person persistPerson(Person p);
 
     public Phone persistPhone(Phone p, Infoentity ie);
+    
+    public void editPerson(Person p);
+    
+    public void editCompany(Company c);
+    
+    public void deletePerson(Person p);
+    
+    public void deleteCompany(Company c);
+    
 }

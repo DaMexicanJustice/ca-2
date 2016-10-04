@@ -191,4 +191,24 @@ public class BigBadFacade implements IBigBadInterface {
 
         return a;
     }
+    
+    @Override
+    public void editPerson(Person p) {
+        
+    }
+    
+    @Override
+    public void editCompany(Company c) {
+        
+    }
+    
+    @Override
+    public void deletePerson(Person p) {
+        
+    }
+    
+    @Override
+    public void deleteCompany(Company c) {
+        
+    }
 }
