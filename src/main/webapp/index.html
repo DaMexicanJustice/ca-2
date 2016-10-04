@@ -3,6 +3,9 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="script/caJavaScript.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     </head>
     <body>
         <h1>Hello World!</h1>
@@ -10,6 +13,45 @@
         <div id="authors"> Michael Veilis, Lasse Hansen, Patrick Johansen and Christian Jacobsen </div> 
         <div id="class">B</div>
         <div id= "group"> DeGladeKaffemænd </div>
-        
+        <br><br><br>
+
+        <div id="readPersons">
+            <h1>Persons you can read about</h1><br>
+            <table class="datacontainer" id="Personhdr">
+                <thead>
+                    <tr class="headtr">
+                        <td class="tabletd">email</td>
+                        <td class="tabletd">firstName</td>
+                        <td class="tabletd">lastName</td>
+                        <td class="tabletd">hobbyName</td>
+                        <td class="tabletd">phoneNumber</td>
+                        <td class="tabletd">street</td>
+                    </tr>
+                </thead>
+                <tbody class="datacontainer" id="Persons">
+                    <tr class="bodytr">
+                        <td class="tablebtd">email<td><button class="Edit"></button><button class="delete"></button></td>
+                    </tr>
+                    
+                </tbody>
+            </table><br>
+        </div>
+        <br>
+        <h2>Create a Person</h2>
+        <div id="createPerson">
+            <span>Email</span><br>
+            <input id="CEmail" type="text"><br>
+            <span>FirstName</span><br>
+            <input id="CFirstName" type="text"><br>
+            <span>LastName</span><br>
+            <input id="CLastName" type="text"><br>
+            <span>Hobby</span><br>
+            <input id="CHobbyName" type="text"><br>
+            <span>PhoneNumber</span><br>
+            <input id="CPhoneNumber" type="text"><br>
+            <span>Street</span><br>
+            <input id="CStreet" type="text">
+        </div>
+        <br>
     </body>
 </html>

@@ -26,7 +26,7 @@
 // */
 //public class BigBadFacadeTest {
 //    
-//    private IFacade facade = new Facade(Persistence.createEntityManagerFactory("persistenceunit"));
+//    private IFacade facade = new Facade(Persistence.createEntityManagerFactory("test"));
 //
 //    
 //    public BigBadFacadeTest() {
