@@ -3,28 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exception;
+package exception.error;
 
 /**
  *
  * @author xboxm
  */
-public class PersonNotFoundException extends Exception {
+public class PhonesNotFoundException extends Exception {
 
     /**
-     * Creates a new instance of <code>PersonNotFoundException</code> without
+     * Creates a new instance of <code>PhonesNotFoundException</code> without
      * detail message.
      */
-    public PersonNotFoundException() {
+    public PhonesNotFoundException() {
     }
 
     /**
-     * Constructs an instance of <code>PersonNotFoundException</code> with the
+     * Constructs an instance of <code>PhonesNotFoundException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public PersonNotFoundException(String msg) {
+    public PhonesNotFoundException(String msg) {
         super(msg);
     }
 }
