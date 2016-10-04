@@ -5,9 +5,18 @@
  */
 package facade;
 
+import entity.Address;
+import entity.Company;
+import entity.Hobby;
+import entity.Infoentity;
+import entity.Person;
+import entity.Phone;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnit;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -19,79 +28,114 @@ public class FacadeTest {
     
     public FacadeTest() {
     }
-/*
+
     @Test
     public void testGetAddressById() {
         System.out.println("getAddressById");
-        int id = 0;
-        Facade instance = null;
-        Address expResult = null;
-        Address result = instance.getAddressById(id);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        Facade instance2 = new Facade(emf);
+        Address a1 = new Address();
+        a1.setStreet("Fiskestræde");
+        instance2.persistAddress(a1);
+        
+        Facade instance = new Facade(emf);
+        Address result = instance.getAddressById(1);
+        assertTrue(result != null && result.getAddressid() == 1);
+        System.out.println("result is " + result.getStreet());
+        //fail("The test case is a prototype.");
     }
-
+    
     @Test
     public void testGetCompanyByCvr() {
         System.out.println("getCompanyByCvr");
-        String cvr = "";
-        Facade instance = null;
-        Company expResult = null;
+        
+        Facade instance2 = new Facade(emf);
+        Company c2 = new Company();
+        c2.setCid(145);
+        c2.setCname("Mælkehuset");
+        c2.setCvr("000000");
+        instance2.persistCompany(c2);
+        
+        String cvr = "000000";
+        Facade instance = new Facade(emf);
         Company result = instance.getCompanyByCvr(cvr);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertEquals(result.getCname(), "Mælkehuset");
+        //fail("The test case is a prototype.");
     }
-*/
-//    @Test
-//    public void testPersistCompany() {
-//        System.out.println("persistCompany");
-//        
-//        Company c = new Company();
-//        Facade instance = new Facade(emf);
-//        
-//        c.setCname("The company");
-//        c.setCvr("123456");
-//        
-//        Company expResult = c;
-//        Company result = instance.persistCompany(c);
-//        
-//        assertEquals(expResult, result);
-//        
-//        // fail("The test case is a prototype.");
-//    }
-/*
+    
+    @Test
+    public void testPersistCompany() {
+        System.out.println("persistCompany");
+        
+        Company c = new Company();
+        
+        
+        Facade instance = new Facade(emf);
+        
+        c.setCid(1);
+        c.setCname("The company");
+        c.setCvr("123456");
+        
+        Company expResult = c;
+        
+        Company result = instance.persistCompany(c);
+        assertEquals(expResult, result);
+        
+        // fail("The test case is a prototype.");
+    }
+
     @Test
     public void testGetCompanies() {
         System.out.println("getCompanies");
-        Facade instance = null;
-        List expResult = null;
-        List result = instance.getCompanies();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        Facade instance2 = new Facade(emf);
+        Company c2 = new Company();
+        c2.setCid(145);
+        c2.setCname("Fiskeforretningen");
+        c2.setCvr("555666");
+        instance2.persistCompany(c2);
+        
+        
+        Facade instance = new Facade(emf);
+        
+        List<Company> result = instance.getCompanies();
+        assertTrue(result.get(0).getCid() == 145);
     }
+    
 
     @Test
     public void testGetHobbies() {
         System.out.println("getHobbies");
-        int id = 0;
-        Facade instance = null;
-        ArrayList expResult = null;
-        ArrayList result = instance.getHobbies(id);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        Facade instance2 = new Facade(emf);
+        Hobby h = new Hobby();
+        h.setHobbyName("Frodo");
+        h.setDescription("A brave hobbyt");
+        instance2.persistHobby(h);
+        
+        Facade instance = new Facade(emf);
+        
+        List<Hobby> result = instance.getHobbies();
+        
+        System.out.println("JUNITTEST " + result.size());
+        assertTrue(false);
+        //assertTrue(result.get(0).getHobbyName().equals("Frodo"));
     }
-
     @Test
     public void testPersistHobby() {
         System.out.println("persistHobby");
-        Hobby h = null;
-        Facade instance = null;
-        Hobby expResult = null;
-        Hobby result = instance.persistHobby(h);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
+        
+        Hobby h = new Hobby();
 
+        Facade instance = new Facade(emf);
+        
+        h.setHobbyName("Hobby A");
+        h.setDescription("Hobbybeskrivelsen");
+        
+        Hobby result = instance.persistHobby(h);
+        assertEquals(h, result);
+    }
+/*
     @Test
     public void testGetInfoEntityById() {
         System.out.println("getInfoEntityById");
@@ -134,18 +178,19 @@ public class FacadeTest {
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
-
+*/
     @Test
     public void testPersistPerson() {
-        System.out.println("persistPerson");
-        Person p = null;
-        Facade instance = null;
-        Person expResult = null;
-        Person result = instance.persistPerson(p);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        Facade instance2 = new Facade(emf);
+        Person p = new Person();
+        p.setFirstName("Anders");
+        p.setLastName("Fogh");
+        Person result = instance2.persistPerson(p);
+        
+        assertEquals(result, p);
+        assertTrue(result.getFirstName().equals("Anders"));
     }
-
+/*
     @Test
     public void testGetPhonesById() {
         System.out.println("getPhonesById");
@@ -156,31 +201,34 @@ public class FacadeTest {
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
+    
+    */
 
     @Test
     public void testPersistPhone() {
+        
         System.out.println("persistPhone");
-        Phone p = null;
-        Infoentity ie = null;
-        Facade instance = null;
-        Phone expResult = null;
-        Phone result = instance.persistPhone(p, ie);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        
+        Facade instance2 = new Facade(emf);
+        Phone p = new Phone();
+        p.setPnum("22446688");
+        p.setDescription("Meget interessant telefon");
+        Phone result = instance2.persistPhone(p);
+        
+        assertEquals(result, p);
     }
 
     @Test
     public void testPersistAddress() {
-        System.out.println("persistAddress");
-        Address a = null;
-        Infoentity ie = null;
-        Facade instance = null;
-        Address expResult = null;
-        Address result = instance.persistAddress(a, ie);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        Facade instance2 = new Facade(emf);
+        Address a = new Address();
+        a.setStreet("Fladestræde");
+        Address result = instance2.persistAddress(a);
+        
+        assertEquals(result, a);
     }
-
+    
+/*
     @Test
     public void testEditPerson() {
         System.out.println("editPerson");

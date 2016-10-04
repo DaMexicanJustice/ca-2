@@ -66,15 +66,20 @@ public class Facade implements IFacade {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Company> result = em.createNamedQuery("Company.findAll", Company.class);
         List<Company> companies = result.getResultList();
+        em.close();
         return companies;
     }
 
     @Override
-    public ArrayList getHobbies(int id) {
-        EntityManager em = emf.createEntityManager();
+    public List getHobbies() {
+        /*EntityManager em = emf.createEntityManager();
         TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyid", Hobby.class);
         Hobby hobby = result.setParameter("hobbyid", id).getSingleResult();
-        ArrayList<Hobby> hobbies =  new ArrayList(hobby.getFkId().getHobbyCollection());
+        ArrayList<Hobby> hobbies =  new ArrayList(hobby.getFkId().getHobbyCollection());*/
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findAll", Hobby.class);
+        List<Hobby> hobbies = result.getResultList();
+        em.close();
         return hobbies;
     }
 
@@ -84,7 +89,7 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         em.persist(h);
         em.getTransaction().commit();
-        em.flush();
+        //em.flush();
         em.close();
 
         return h;
@@ -146,7 +151,6 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         em.persist(p);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return p;
@@ -162,31 +166,24 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Phone persistPhone(Phone p, Infoentity ie) {
+    public Phone persistPhone(Phone p) {
         EntityManager em = emf.createEntityManager();
         
-        Collection<Phone> phones = ie.getPhoneCollection();
-        phones.add(p);
         em.getTransaction().begin();
-        em.persist(ie);
+        em.persist(p);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return p;
     }
-
+    
     @Override
-    public Address persistAddress(Address a, Infoentity ie) {
+    public Address persistAddress(Address a) {
         EntityManager em = emf.createEntityManager();
         
-        Collection<Address> addresses = ie.getAddressCollection();
-        addresses.add(a);
-        
         em.getTransaction().begin();
-        em.persist(ie);
+        em.persist(a);
         em.getTransaction().commit();
-        em.flush();
         em.close();
 
         return a;

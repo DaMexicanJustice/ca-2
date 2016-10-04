@@ -22,7 +22,7 @@ public interface IFacade {
 
     public Address getAddressById(int id);
 
-    public Address persistAddress(Address a, Infoentity ie);
+    public Address persistAddress(Address a);
 
     public Company getCompanyByCvr(String cvr);
 
@@ -30,7 +30,7 @@ public interface IFacade {
 
     public List getCompanies();
 
-    public ArrayList getHobbies(int id);
+    public List getHobbies();
 
     public Hobby persistHobby(Hobby h);
     
@@ -46,7 +46,7 @@ public interface IFacade {
 
     public Person persistPerson(Person p);
 
-    public Phone persistPhone(Phone p, Infoentity ie);
+    public Phone persistPhone(Phone p);
     
     public void editPerson(Person p);
     
