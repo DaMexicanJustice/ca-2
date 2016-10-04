@@ -11,7 +11,7 @@
         <h1>Hello World!</h1>
         <!-- DON'T EDIT THE THE ID's in these div three divs! -->
         <div id="authors"> Michael Veilis, Lasse Hansen, Patrick Johansen and Christian Jacobsen </div> 
-        <div id="class">B</div>
+        <div id="class">Dat B</div>
         <div id= "group"> DeGladeKaffemænd </div>
         <br><br><br>
 
@@ -30,15 +30,37 @@
                 </thead>
                 <tbody class="datacontainer" id="Persons">
                     <tr class="bodytr">
-                        <td class="tablebtd">email<td><button class="Edit"></button><button class="delete"></button></td>
+                        <td class="tablebtd">emailTmp</td>
+                        <td class="tablebtd">firstNameTmp</td>
+                        <td class="tablebtd">lastNameTmp</td>
+                        <td class="tablebtd">hobbyTmp</td>
+                        <td class="tablebtd">phoneNumberTmp</td>
+                        <td class="tablebtd">streetTmp<button class="edit">edit</button>//<button class="delete">delete</button></td>
                     </tr>
-                    
                 </tbody>
-            </table><br>
+            </table>
+        </div><br>
+        <div class="buttons2" style="height:100px;
+             margin:0 auto;
+             width:100%;
+             margin-left:300px;">
+            <span>Get all persons with a given hobby</span><br>
+            <input id="givenHobby" type="text" style="width: 100px">
+            <button class="Get">Get</button><br><br>
+            <span>Persons living in a given city</span><br>
+            <input id="givenCity" type="text" style="width: 35px">
+            <button class="Get">Get</button><br><br>
+            <span>Get the count of people with a given hobby</span><br>
+            <input id="COPWH" type="text" style="width: 100px">
+            <button class="Get">Get</button><br><br>
+            <span>Get a list of all zip codes in Denmark</span><br>
+            <button class="Get">Get</button><br><br>
+            <span>Get a list of companies with more than xx employees</span><br>
+            <button class="Get">Get</button>
         </div>
-        <br>
-        <h2>Create a Person</h2>
-        <div id="createPerson">
+        <div id="createPerson" style="position: absolute;
+             top: 37.5%;">
+            <span><strong>Create Person</strong></span><br>
             <span>Email</span><br>
             <input id="CEmail" type="text"><br>
             <span>FirstName</span><br>
@@ -50,7 +72,8 @@
             <span>PhoneNumber</span><br>
             <input id="CPhoneNumber" type="text"><br>
             <span>Street</span><br>
-            <input id="CStreet" type="text">
+            <input id="CStreet" type="text"><br>
+            <button class="submit">Add</button>
         </div>
         <br>
     </body>
