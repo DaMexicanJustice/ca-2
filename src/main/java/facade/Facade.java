@@ -55,7 +55,7 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         em.persist(c);
         em.getTransaction().commit();
-        em.flush();
+        //em.flush();
         em.close();
 
         return c;
