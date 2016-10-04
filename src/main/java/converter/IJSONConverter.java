@@ -28,6 +28,7 @@ public interface IJSONConverter {
     public Company JSONToCompany(String json);
     public String CompanyToJSON(Company c);
     public String CompanyContactInfoToJSON(Company c);
+    public String CompaniesContactInfoToJSON(Collection<Company> companies);
     public Hobby JSONToHobby(String json);
     public String HobbyListToJSON(Collection<Hobby> hobby);
 }
