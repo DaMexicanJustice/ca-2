@@ -5,18 +5,9 @@
  */
 package facade;
 
-import entity.Address;
-import entity.Company;
-import entity.Hobby;
-import entity.Infoentity;
-import entity.Person;
-import entity.Phone;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import javax.persistence.PersistenceUnit;
 
 /**
  *
@@ -24,7 +15,7 @@ import static org.junit.Assert.*;
  */
 public class FacadeTest {
     
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceunit");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
     
     public FacadeTest() {
     }
@@ -51,23 +42,23 @@ public class FacadeTest {
         fail("The test case is a prototype.");
     }
 */
-    @Test
-    public void testPersistCompany() {
-        System.out.println("persistCompany");
-        
-        Company c = new Company();
-        Facade instance = new Facade(emf);
-        
-        c.setCname("The company");
-        c.setCvr("123456");
-        
-        Company expResult = c;
-        Company result = instance.persistCompany(c);
-        
-        assertEquals(expResult, result);
-        
-        // fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testPersistCompany() {
+//        System.out.println("persistCompany");
+//        
+//        Company c = new Company();
+//        Facade instance = new Facade(emf);
+//        
+//        c.setCname("The company");
+//        c.setCvr("123456");
+//        
+//        Company expResult = c;
+//        Company result = instance.persistCompany(c);
+//        
+//        assertEquals(expResult, result);
+//        
+//        // fail("The test case is a prototype.");
+//    }
 /*
     @Test
     public void testGetCompanies() {

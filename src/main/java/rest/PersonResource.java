@@ -9,7 +9,6 @@ import converter.IJSONConverter;
 import converter.JSONConverter;
 import entity.Person;
 import exception.error.PersonNotFoundException;
-import exception.error.ValidationErrorException;
 import facade.Facade;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
@@ -21,9 +20,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import facade.IFacade;
-import java.util.List;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
+import javax.persistence.PersistenceUnit;
 
 /**
  * REST Web Service
@@ -43,7 +40,7 @@ public class PersonResource {
      * Creates a new instance of PersonResource
      */
     public PersonResource() {
-        facade = new Facade(Persistence.createEntityManagerFactory("persistenceunit"));
+        facade = new Facade(Persistence.createEntityManagerFactory("deploy"));
         jsonC = new JSONConverter();
     }
 
@@ -52,7 +49,7 @@ public class PersonResource {
         return "Hello World";
     }
     
-    /*
+    
     @GET
     @Path("complete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,7 +61,7 @@ public class PersonResource {
             throw new PersonNotFoundException("No person with provided id found");
         }
     }
-    
+    /*
     @GET
     @Path("complete/contactinfo/{id}")
     @Produces(MediaType.APPLICATION_JSON)
