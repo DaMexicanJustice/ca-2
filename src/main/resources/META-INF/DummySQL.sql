@@ -492,11 +492,10 @@ INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Mantra"
 INSERT INTO infoentity (email) VALUES ("mint@tester.dk");
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76989888", "companye2", "commas", 110, 125998, 70);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345747", "Cell phone", 70);
-<<<<<<< HEAD
-=======
+
+INSERT INTO infoentity (email) VALUES ("darro@tester.dk");
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76989888", "companyl2", "commas", 110, 125998, 70);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("22622248", "Cell phone", 70);
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Tan", "beay", 70, 1113);
 
 INSERT INTO infoentity (email) VALUES ("mmo@tester.dk");
