@@ -3,9 +3,9 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="script/caJavaScript.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="CAcss.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1>Hello World!</h1>
@@ -13,10 +13,10 @@
         <div id="authors"> Michael Veilis, Lasse Hansen, Patrick Johansen and Christian Jacobsen </div> 
         <div id="class">Dat B</div>
         <div id= "group"> DeGladeKaffemænd </div>
-        <br><br><br>
+        <br><br>
 
         <div id="readPersons">
-            <h1>Persons you can read about</h1><br>
+            <h2>Persons you can read about</h2>
             <table class="datacontainer" id="Personhdr">
                 <thead>
                     <tr class="headtr">
@@ -30,51 +30,73 @@
                 </thead>
                 <tbody class="datacontainer" id="Persons">
                     <tr class="bodytr">
-                        <td class="tablebtd">emailTmp</td>
-                        <td class="tablebtd">firstNameTmp</td>
-                        <td class="tablebtd">lastNameTmp</td>
-                        <td class="tablebtd">hobbyTmp</td>
-                        <td class="tablebtd">phoneNumberTmp</td>
-                        <td class="tablebtd">streetTmp<button class="edit">edit</button>//<button class="delete">delete</button></td>
+                        <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp<button class="edit">edit</button>//<button class="delete">delete</button></td>
                     </tr>
                 </tbody>
             </table>
         </div><br>
-        <div class="buttons2" style="height:100px;
-             margin:0 auto;
-             width:100%;
-             margin-left:300px;">
-            <span>Get all persons with a given hobby</span><br>
-            <input id="givenHobby" type="text" style="width: 100px">
-            <button class="Get">Get</button><br><br>
-            <span>Persons living in a given city</span><br>
-            <input id="givenCity" type="text" style="width: 35px">
-            <button class="Get">Get</button><br><br>
-            <span>Get the count of people with a given hobby</span><br>
-            <input id="COPWH" type="text" style="width: 100px">
-            <button class="Get">Get</button><br><br>
-            <span>Get a list of all zip codes in Denmark</span><br>
-            <button class="Get">Get</button><br><br>
-            <span>Get a list of companies with more than xx employees</span><br>
-            <button class="Get">Get</button>
+        <div id="section">
+            <div class="buttons">
+                <span>Get all persons with a given hobby</span><br>
+                <input id="givenHobby" type="text" style="width: 100px">
+                <button class="givHobGet">Get</button><br><br>
+                <span>Persons living in a given city</span><br>
+                <input id="givenCity" type="text" style="width: 35px">
+                <button class="givCityGet">Get</button><br><br>
+                <span>Get the count of people with a given hobby</span><br>
+                <input id="COPWH" type="text" style="width: 100px">
+                <button class="givCoHobGet">Get</button><br><br>
+                <span>Get Person by ID</span><br>
+                <input id="personId" type="text" style="width: 15px">
+                <button class="byIdGet">Get</button><br><br>
+                <span>Get Persons info by ID</span><br>
+                <input id="pInfoId" type="text" style="width: 15px">
+                <button class="byInfoIdGet">Get</button>
+            </div>
+            <div id="createPerson">
+                <span><strong>Create Person</strong></span><br>
+                <span>Email</span><br>
+                <input id="CEmail" type="text"><br>
+                <span>FirstName</span><br>
+                <input id="CFirstName" type="text"><br>
+                <span>LastName</span><br>
+                <input id="CLastName" type="text"><br>
+                <span>Hobby</span><br>
+                <input id="CHobbyName" type="text"><br>
+                <span>PhoneNumber</span><br>
+                <input id="CPhoneNumber" type="text"><br>
+                <span>Street</span><br>
+                <input id="CStreet" type="text"><br>
+                <button class="create">Add</button>
+            </div>
         </div>
-        <div id="createPerson" style="position: absolute;
-             top: 37.5%;">
-            <span><strong>Create Person</strong></span><br>
-            <span>Email</span><br>
-            <input id="CEmail" type="text"><br>
-            <span>FirstName</span><br>
-            <input id="CFirstName" type="text"><br>
-            <span>LastName</span><br>
-            <input id="CLastName" type="text"><br>
-            <span>Hobby</span><br>
-            <input id="CHobbyName" type="text"><br>
-            <span>PhoneNumber</span><br>
-            <input id="CPhoneNumber" type="text"><br>
-            <span>Street</span><br>
-            <input id="CStreet" type="text"><br>
-            <button class="submit">Add</button>
+        <div id="section2">
+            <div class="zipCodes">
+                <h3>List of all zip codes</h3>
+                <span>Get a list of all zip codes in Denmark</span><br>
+                <button class="zipGet">Get</button>       
+                <ol class="zips">
+                    <li>Tmp</li>
+                    <li>Tmp</li>
+                    <li>Tmp</li>
+                </ol>
+            </div><br><br>
+            <div class="companiesEmp">
+                <h3>List of companies</h3>
+                <span>Get list of companies with more than xx employees</span><br>
+                <button class="comGet">Get</button>
+                <ol class="companies">
+                    <li>Tmp</li>
+                    <li>Tmp</li>
+                    <li>Tmp</li>
+                </ol>
+            </div>
         </div>
-        <br>
+        <script src="script/caJavaScript.js" type="text/javascript"></script>
     </body>
 </html>

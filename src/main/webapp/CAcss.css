@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04-10-2016, 17:34:45
+    Author     : Michael
+*/
+html, body {
+    height: 40%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center
+}
+
+.datacontainer {
+    border : 1px solid black;
+}
+
+.tabletd, tablebtd {
+    border : 1px solid black;
+    padding : 10px;
+}
+
+#section{
+    border-top: 1px solid black;
+}
+
+.buttons{
+    float: left;
+}
+
+#createPerson{
+    float: left;
+    padding-left: 2cm;
+}
+
+.zipCodes{
+    float: left;
+    padding-top: 2cm;
+}
+
+.zips{
+    padding-right: 1cm;
+    list-style-position: inside;
+}
+
+.companiesEmp{
+    float: right;
+    padding-top: 2cm;
+}
+
+.companies{
+    padding-right: 1cm;
+    list-style-position: inside;
+}
