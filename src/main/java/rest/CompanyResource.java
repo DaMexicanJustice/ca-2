@@ -9,15 +9,18 @@ import converter.IJSONConverter;
 import converter.JSONConverter;
 import entity.Company;
 import exception.error.CompanyNotFoundException;
+import exception.error.ValidationErrorException;
 import facade.Facade;
 import facade.IFacade;
 import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -60,12 +63,24 @@ public class CompanyResource {
             throw new CompanyNotFoundException("No company with that cvr");
         }
     }
-    
+
     @GET
     @Path("comp/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getCompanies(){
-            List<Company> allCompanies = facade.getCompanies();
-            return jsonC.CompaniesContactInfoToJSON(allCompanies);
+    public String getCompanies() {
+        List<Company> allCompanies = facade.getCompanies();
+        return jsonC.CompaniesContactInfoToJSON(allCompanies);
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String addCompany(String jsonCompany) throws ValidationErrorException {
+        Company company = jsonC.JSONToCompany(jsonCompany);
+        if(company.getCname().isEmpty()){
+            throw new ValidationErrorException("Company name is missing.");
+        }
+        Company c = facade.persistCompany(company);
+        return jsonC.CompanyToJSON(c);
     }
 }
