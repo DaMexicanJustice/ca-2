@@ -94,7 +94,7 @@ public class CompanyResource {
             if (company.getCname().isEmpty() || company.getCvr().isEmpty()) {
                 throw new ValidationErrorException("Company name or CVR is missing.");
             }
-            Company c = facade.editCompany(jsonC.jsonToCompany(jsonCompany));
+            Company c = facade.editCompany(facade.getCompanyByCvr(jsonC.jsonToCompany(jsonCompany).getCvr()), jsonC.jsonToCompany(jsonCompany));
             return jsonC.companyToJSON(c);
 
         } catch (NoResultException e) {
