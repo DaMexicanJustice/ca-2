@@ -7,6 +7,17 @@ and open the template in the editor.
     Created on : 04-10-2016, 17:34:45
     Author     : Michael
 */
+html, body, div, h1, h2, h3, span, authors, class, group, readPersons, Personhdr, headtr, tabletd, table, thead, tr, td, tbody, Persons, bodytr, tablebtd, edit, delete, section, buttons, input, button, givenHobby, givHobGet, givenCity, givCityGet, COPWH, givCoHobGet, personId, byIdGet, pInfoId, byInfoIdGet, createPerson, strong, CEmail, CFirstName, CLastName, CHobbyName, CPhoneNumber, CStreet, create, section2, zipCodes, zipGet, zips, ol, li, companiesEmp, comGet, companies {
+    /*
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    */
+}
+
 html, body {
     height: 40%;
 }

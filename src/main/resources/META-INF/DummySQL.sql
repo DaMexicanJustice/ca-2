@@ -306,142 +306,49 @@ INSERT INTO hobby (hobbyName, description, fk_pid) VALUES ("Parentless", "No par
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345728", "Cell phone", 51);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village Z", "Village by the letter Z", 51, 1021);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test1@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76787678", "companyA","company with the letter A", 10, 5000, 52);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345729", "Cell phone", 52);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 1", "Village that likes the number 1", 52, 1022);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test2@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76782678", "companyB","company with the letter B", 50, 10000, 53);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345730", "Cell phone", 53);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 2", "Village that likes the number 2", 53, 1023);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test3@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("80900908", "companyC","company with the letter C", 5, 2500, 54);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345731", "Cell phone", 54);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 3", "Village that likes the number 3", 54, 1024);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test4@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("70001378", "companyD","company with the letter D", 560, 555000, 55);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345732", "Cell phone", 55);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 4", "Village that likes the number 4", 55, 1025);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test5@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("22287338", "companyE","company with the letter E", 410, 445000, 56);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345733", "Cell phone", 56);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 5", "Village that likes the number 5", 56, 1026);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a2test33@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("06223678", "companyF","company with the letter F", 23, 52000, 57);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345734", "Cell phone", 57);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 6", "Village that likes the number 6", 57, 1056);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a1test44@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76009978", "companyG","company with the letter G", 16, 6000, 58);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345735", "Cell phone", 58);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 7", "Village that likes the number 7", 58, 1057);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a1test55@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("11187678", "companyH","company with the letter H", 2, 500,59);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345736", "Cell phone", 59);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 8", "Village that likes the number 8", 59, 1045);
 
-<<<<<<< HEAD
 INSERT INTO infoentity (email) VALUES ("a1test66@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("00987678", "companyI","company with the letter I", 180, 590000, 60);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345737", "Cell phone", 60);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 9", "Village that likes the number 9", 60, 1050);
-
-<<<<<<< HEAD
-INSERT INTO infoentity (email) VALUES ("a1test23@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76989678", "companyJ","company with the letter j", 110, 125000, 61);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12345738", "Cell phone", 61);
-
-INSERT INTO infoentity (email) VALUES ("a1test132@tester.dk");
-=======
-INSERT INTO infoentity (email) VALUES ("a1test@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76989678", "companyJ","company with the letter j", 110, 125000, 61);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12345738", "Cell phone", 61);
-
-INSERT INTO infoentity (email) VALUES ("a1test1@tester.dk");
->>>>>>> 64669e878d9a514340efd6aad03783afa6398b58
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76787678", "companyA","company with the letter A", 10, 5000, 52);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12444222", "Cell phone", 52);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 1", "Village that likes the number 1", 52, 1022);
-
-INSERT INTO infoentity (email) VALUES ("a1test2@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76782678", "companyB","company with the letter B", 50, 10000, 53);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12323238", "Cell phone", 53);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 2", "Village that likes the number 2", 53, 1023);
-
-INSERT INTO infoentity (email) VALUES ("a1tes3t@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("80900908", "companyC","company with the letter C", 5, 2500, 54);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("33335678", "Cell phone", 54);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 3", "Village that likes the number 3", 54, 1024);
-
-INSERT INTO infoentity (email) VALUES ("a1test4@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("70001378", "companyD","company with the letter D", 560, 555000, 55);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("43215678", "Cell phone", 55);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 4", "Village that likes the number 4", 55, 1025);
-
-INSERT INTO infoentity (email) VALUES ("a1test5@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("22287338", "companyE","company with the letter E", 410, 445000, 56);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("45545678", "Cell phone", 56);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 5", "Village that likes the number 5", 56, 1026);
-
-INSERT INTO infoentity (email) VALUES ("a1test6@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("06223678", "companyF","company with the letter F", 23, 52000, 57);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12345555", "Cell phone", 57);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 6", "Village that likes the number 6", 57, 1056);
-
-INSERT INTO infoentity (email) VALUES ("a1test7@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76009978", "companyG","company with the letter G", 16, 6000, 58);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12766678", "Cell phone", 58);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 7", "Village that likes the number 7", 58, 1057);
-
-INSERT INTO infoentity (email) VALUES ("a1test8@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("11187678", "companyH","company with the letter H", 2, 500,59);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("32245678", "Cell phone", 59);
-INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 8", "Village that likes the number 8", 59, 1045);
-
-INSERT INTO infoentity (email) VALUES ("a1test9@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("00987678", "companyI","company with the letter I", 180, 590000, 60);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("12345898", "Cell phone", 60);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 9", "Village that likes the number 9", 60, 1050);
 
 INSERT INTO infoentity (email) VALUES ("a1test10@tester.dk");
@@ -484,7 +391,7 @@ INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345745", "Cell phone", 68);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Hyper", "beam", 68, 1359);
 
-INSERT INTO infoentity (email) VALUES ("a1t3t@tester.dk");
+INSERT INTO infoentity (email) VALUES ("a1t3tuj@tester.dk");
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76989678", "companye2", "comss", 110, 12, 69);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345746", "Cell phone", 69);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Mantra", "beatCity", 69, 1353);
@@ -492,10 +399,6 @@ INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Mantra"
 INSERT INTO infoentity (email) VALUES ("mint@tester.dk");
 INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76989888", "companye2", "commas", 110, 125998, 70);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345747", "Cell phone", 70);
-
-INSERT INTO infoentity (email) VALUES ("darro@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76989888", "companyl2", "commas", 110, 125998, 70);  
-INSERT INTO phone(pnum, description, fk_id) VALUES ("22622248", "Cell phone", 70);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Tan", "beay", 70, 1113);
 
 INSERT INTO infoentity (email) VALUES ("mmo@tester.dk");
