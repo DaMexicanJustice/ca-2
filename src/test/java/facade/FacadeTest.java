@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package facade;
 
 import entity.Address;
@@ -23,6 +24,7 @@ import static org.junit.Assert.*;
  *
  * @author Lasse
  */
+/*
 public class FacadeTest {
     
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
@@ -398,3 +400,4 @@ public class FacadeTest {
         instance.deleteCityinfo(c);
     }
 }
+*/

@@ -1,3 +1,4 @@
+@import url("");
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -8,14 +9,9 @@ and open the template in the editor.
     Author     : Michael
 */
 html, body, div, h1, h2, h3, span, authors, class, group, readPersons, Personhdr, headtr, tabletd, table, thead, tr, td, tbody, Persons, bodytr, tablebtd, edit, delete, section, buttons, input, button, givenHobby, givHobGet, givenCity, givCityGet, COPWH, givCoHobGet, personId, byIdGet, pInfoId, byInfoIdGet, createPerson, strong, CEmail, CFirstName, CLastName, CHobbyName, CPhoneNumber, CStreet, create, section2, zipCodes, zipGet, zips, ol, li, companiesEmp, comGet, companies {
-    /*
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    */
+    
+    font-size: 105%;
+    
 }
 
 html, body {
@@ -30,7 +26,8 @@ html {
 body {
     display: table-cell;
     vertical-align: middle;
-    text-align: center
+    text-align: center;
+    background-color: lightblue;
 }
 
 .datacontainer {
@@ -48,16 +45,18 @@ body {
 
 .buttons{
     float: left;
+    padding-left: 1cm;
 }
 
 #createPerson{
     float: left;
-    padding-left: 2cm;
+    padding-left: 4cm;
 }
 
 .zipCodes{
     float: left;
     padding-top: 2cm;
+    padding-left: 1.5cm;
 }
 
 .zips{
@@ -68,6 +67,7 @@ body {
 .companiesEmp{
     float: right;
     padding-top: 2cm;
+    padding-left: 2cm;
 }
 
 .companies{
