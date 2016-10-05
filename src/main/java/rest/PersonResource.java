@@ -128,7 +128,7 @@ public class PersonResource {
             if (person.getFirstName().isEmpty() || person.getLastName().isEmpty()) {
                 throw new ValidationErrorException("Missing necessary input fields");
             }
-            Person p = facade.editPerson(jsonC.jsonToPerson(jsonPerson));
+            Person p = facade.editPerson(facade.getPersonById(person.getPid()), person);
             return jsonC.personToJSON(p);
         } catch (NoResultException ex) {
             throw new PersonNotFoundException("No person with provided id found");
