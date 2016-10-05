@@ -20,6 +20,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -77,10 +78,26 @@ public class CompanyResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String addCompany(String jsonCompany) throws ValidationErrorException {
         Company company = jsonC.JSONToCompany(jsonCompany);
-        if(company.getCname().isEmpty()){
+        if (company.getCname().isEmpty()) {
             throw new ValidationErrorException("Company name is missing.");
         }
         Company c = facade.persistCompany(company);
         return jsonC.CompanyToJSON(c);
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String editCompany(String jsonCompany) throws CompanyNotFoundException, ValidationErrorException {
+        try {
+            Company company = jsonC.JSONToCompany(jsonCompany);
+            if (company.getCname().isEmpty()) {
+                throw new CompanyNotFoundException("Missing company name");
+            }
+            Company c = facade.editCompany(jsonC.JSONToCompany(jsonCompany));
+            return jsonC.CompanyToJSON(c);
+
+        } catch (NoResultException e) {
+            throw new CompanyNotFoundException("The company was not found");
+        }
     }
 }
