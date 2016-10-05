@@ -47,7 +47,7 @@ public class JSONConverter implements IJSONConverter {
     .serializeNulls().setPrettyPrinting().create();
 
     @Override
-    public Phone JSONToPhone(String json) {
+    public Phone jsonToPhone(String json) {
         return gson.fromJson(json, Phone.class);
     }
     
@@ -55,12 +55,12 @@ public class JSONConverter implements IJSONConverter {
     // from an infinite cycling between database entities with references to each other. Need to work on a
     // solution.
     @Override
-    public String PhoneCollectionToJSON(Collection<Phone> phone) {
+    public String phoneCollectionToJSON(Collection<Phone> phone) {
         return gson.toJson(phone);
     }
 
     @Override
-    public Address JSONToAddress(String json) {
+    public Address jsonToAddress(String json) {
         return gson.fromJson(json, Address.class);
     }
     
@@ -68,22 +68,22 @@ public class JSONConverter implements IJSONConverter {
     // from an infinite cycling between database entities with references to each other. Need to work on a
     // solution.
     @Override
-    public String AddressCollectionToJSON(Collection<Address> address) {
+    public String addressCollectionToJSON(Collection<Address> address) {
         return gson.toJson(address);
     }
 
     @Override
-    public Person JSONToPerson(String json) {
+    public Person jsonToPerson(String json) {
         return gson.fromJson(json, Person.class);
     }
 
     @Override
-    public String PersonToJSON(Person p) {
+    public String personToJSON(Person p) {
         return gson.toJson(p);
     }
     
     @Override
-    public String PersonContactInfoToJSON(Person p) {
+    public String personContactInfoToJSON(Person p) {
         JsonObject job = new JsonObject();
         job.addProperty("email", p.getEmail());
         job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
@@ -92,17 +92,17 @@ public class JSONConverter implements IJSONConverter {
     }
 
     @Override
-    public Company JSONToCompany(String json) {
+    public Company jsonToCompany(String json) {
         return gson.fromJson(json, Company.class);
     }
 
     @Override
-    public String CompanyToJSON(Company c) {
+    public String companyToJSON(Company c) {
         return gson.toJson(c);
     }
     
     @Override
-    public String CompanyContactInfoToJSON(Company c) {
+    public String companyContactInfoToJSON(Company c) {
         JsonObject job = new JsonObject();
         job.addProperty("email", c.getEmail());
         job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
@@ -111,7 +111,7 @@ public class JSONConverter implements IJSONConverter {
     }
     
     @Override
-    public String CompaniesContactInfoToJSON(Collection<Company> companies) {
+    public String companiesContactInfoToJSON(Collection<Company> companies) {
         Collection<JsonObject> jobs = new ArrayList();
         for (Company c : companies) {
             JsonObject job = new JsonObject();
@@ -124,7 +124,7 @@ public class JSONConverter implements IJSONConverter {
     }
     
     @Override
-    public Hobby JSONToHobby(String json) {
+    public Hobby jsonToHobby(String json) {
         return gson.fromJson(json, Hobby.class);
     }
     
@@ -132,13 +132,26 @@ public class JSONConverter implements IJSONConverter {
     // from an infinite cycling between database entities with references to each other. Need to work on a
     // solution.
     @Override
-    public String HobbyListToJSON(Collection<Hobby> hobbies) {
+    public String hobbyListToJSON(Collection<Hobby> hobbies) {
         return gson.toJson(hobbies);
     }
     
     @Override
-    public String PersonCollectionToJSON(Collection<Person> people) {
+    public String personCollectionToJSON(Collection<Person> people) {
         return gson.toJson(people);
+    }
+    
+    @Override
+    public String peopleContactInfoToJSON(Collection<Person> people) {
+        Collection<JsonObject> jobs = new ArrayList();
+        for (Person p : people) {
+            JsonObject job = new JsonObject();
+            job.addProperty("email", p.getEmail());
+            job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
+            job.addProperty("addresses", gson.toJson(p.getAddressCollection()));
+            jobs.add(job);
+        }
+        return gson.toJson(jobs);
     }
     
 }

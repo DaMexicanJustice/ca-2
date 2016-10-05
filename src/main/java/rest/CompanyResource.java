@@ -50,7 +50,7 @@ public class CompanyResource {
 
     @GET
     public String getText() {
-        return "Hello World";
+        return "Hello From Company Ressource!";
     }
 
     @GET
@@ -59,7 +59,7 @@ public class CompanyResource {
     public String getCompanyByCvr(@PathParam("cvr") String cvr) throws CompanyNotFoundException {
         try {
             Company company = facade.getCompanyByCvr(cvr);
-            return jsonC.CompanyToJSON(company);
+            return jsonC.companyToJSON(company);
         } catch (NoResultException ex) {
             throw new CompanyNotFoundException("No company with that cvr");
         }
@@ -71,31 +71,31 @@ public class CompanyResource {
     public String getCompanies() throws CompanyNotFoundException {
         List<Company> allCompanies = facade.getCompanies();
         if(allCompanies.isEmpty()) throw new CompanyNotFoundException("No companies registered in database");
-        return jsonC.CompaniesContactInfoToJSON(allCompanies);
+        return jsonC.companiesContactInfoToJSON(allCompanies);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String addCompany(String jsonCompany) throws ValidationErrorException {
-        Company company = jsonC.JSONToCompany(jsonCompany);
+        Company company = jsonC.jsonToCompany(jsonCompany);
         if(company.getCname().isEmpty() || company.getCvr().isEmpty()){
             throw new ValidationErrorException("Company name or CVR is missing.");
         }
         Company c = facade.persistCompany(company);
-        return jsonC.CompanyToJSON(c);
+        return jsonC.companyToJSON(c);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public String editCompany(String jsonCompany) throws CompanyNotFoundException, ValidationErrorException {
         try {
-            Company company = jsonC.JSONToCompany(jsonCompany);
+            Company company = jsonC.jsonToCompany(jsonCompany);
             if (company.getCname().isEmpty() || company.getCvr().isEmpty()) {
                 throw new ValidationErrorException("Company name or CVR is missing.");
             }
-            Company c = facade.editCompany(jsonC.JSONToCompany(jsonCompany));
-            return jsonC.CompanyToJSON(c);
+            Company c = facade.editCompany(jsonC.jsonToCompany(jsonCompany));
+            return jsonC.companyToJSON(c);
 
         } catch (NoResultException e) {
             throw new CompanyNotFoundException("The company was not found");

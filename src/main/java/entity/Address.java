@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "address")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Address.findByfkZipcode", query = "SELECT a FROM Address a WHERE a.fkZipcode = :fkZipcode"),
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a"),
     @NamedQuery(name = "Address.findByAddressid", query = "SELECT a FROM Address a WHERE a.addressid = :addressid"),
     @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"),

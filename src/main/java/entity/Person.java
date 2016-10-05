@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @DiscriminatorValue("person")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Person.findByID", query="SELECT p FROM Person p WHERE p.id = :id"),
     @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
     @NamedQuery(name = "Person.findByPid", query = "SELECT p FROM Person p WHERE p.pid = :pid"),
     @NamedQuery(name = "Person.findByFirstName", query = "SELECT p FROM Person p WHERE p.firstName = :firstName"),

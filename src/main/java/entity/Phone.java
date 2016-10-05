@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "phone")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Phone.findById", query = "SELECT p FROM Phone p WHERE p.fkId = :fkId"),
     @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p"),
     @NamedQuery(name = "Phone.findByPnum", query = "SELECT p FROM Phone p WHERE p.pnum = :pnum"),
     @NamedQuery(name = "Phone.findByDescription", query = "SELECT p FROM Phone p WHERE p.description = :description")})

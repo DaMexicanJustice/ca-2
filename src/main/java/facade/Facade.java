@@ -18,6 +18,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -96,20 +97,21 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public int getInfoEntityById(int id) {
+    public Infoentity getInfoEntityById(int id) {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Infoentity> result = em.createNamedQuery("Infoentity.findById", Infoentity.class);
-        int tmp = result.setParameter("id", id).getSingleResult().getId();
+        Infoentity tmp = result.setParameter("id", id).getSingleResult();
         em.close();
         return tmp;
     }
 
     @Override
-    public Person getPersonById(int id) throws NoResultException {
+    public Person getPersonById(int id) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Person> result = em.createNamedQuery("Person.findByPersonid", Person.class);
-        Person personFound = result.setParameter("personid", id).getSingleResult();
-        return personFound;
+        TypedQuery<Person> result = em.createNamedQuery("Person.findByID", Person.class);
+        Person tmp = result.setParameter("id", id).getSingleResult();
+        em.close();
+        return tmp;
     }
 
     @Override
@@ -121,25 +123,25 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public ArrayList getPeopleIn(int zipcode) {
+    public List<Person> getPeopleIn(int zipcode) {
+        List<Person> finalList = new ArrayList<>();
+        
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Cityinfo> res = em.createNamedQuery("Cityinfo.findByZipcode", Cityinfo.class);
-        Cityinfo tmp = res.getSingleResult();
         
-        ArrayList<Address> potentialAnswers = new ArrayList(tmp.getAddressCollection());
+        Facade instance = new Facade(emf);
         
+        TypedQuery<Address> res = em.createNamedQuery("Address.findByfkZipcode", Address.class);
+        List<Address> tmpList = res.setParameter("fkZipcode", instance.getCityinfoById(zipcode)).getResultList();
+
+        System.out.println("AddressList length is " + tmpList.size());
         
-        em.flush();
-        em.close();
-        
-        ArrayList<Infoentity> finalList = new ArrayList<>();
-        
-        for(int i = 0; i != potentialAnswers.size(); i++) {
-            if(potentialAnswers.get(i).getFkId().getTypeof().equals("person")) {
-                finalList.add(potentialAnswers.get(i).getFkId());
-            }
+        for(Address x : tmpList) {
+            int fkid = x.getFkId().getId();
+            //System.out.println(x.getStreet() + " has fkid " + x.getFkId().getId());
+            //System.out.println("This person is " + instance.getPersonById(fkid).getFirstName());
+            finalList.add(instance.getPersonById(fkid));
         }
-        
+
         return finalList;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -159,8 +161,11 @@ public class Facade implements IFacade {
     @Override
     public List getPhonesById(int id) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Phone> result = em.createNamedQuery("Phone.findByPnum", Phone.class);
-        List<Phone> tmp = result.setParameter("addressid", id).getResultList();
+
+        Facade instance3 = new Facade(emf);
+
+        TypedQuery<Phone> result = em.createNamedQuery("Phone.findById", Phone.class);
+        List<Phone> tmp = result.setParameter("fkId", instance3.getInfoEntityById(id)).getResultList();
         em.close();
         return tmp;
     }
@@ -168,7 +173,7 @@ public class Facade implements IFacade {
     @Override
     public Phone persistPhone(Phone p) {
         EntityManager em = emf.createEntityManager();
-        
+
         em.getTransaction().begin();
         em.persist(p);
         em.getTransaction().commit();
@@ -176,11 +181,11 @@ public class Facade implements IFacade {
 
         return p;
     }
-    
+
     @Override
     public Address persistAddress(Address a) {
         EntityManager em = emf.createEntityManager();
-        
+
         em.getTransaction().begin();
         em.persist(a);
         em.getTransaction().commit();
@@ -188,24 +193,120 @@ public class Facade implements IFacade {
 
         return a;
     }
-    
+
     @Override
-    public Person editPerson(Person p) {
+    public Person editPerson(Person p, Person u) {
+        EntityManager em = emf.createEntityManager();
+
+        Facade instance = new Facade(emf);
+        System.out.println("There are " + instance.getPeople().size() + " people");
+        
+        em.getTransaction().begin();
+        
+        int res = 0;
+        if (u.getFirstName() != null) {
+            res += em.createQuery("UPDATE Person SET firstName=\"" + u.getFirstName()+ "\" WHERE id=" + p.getId()).executeUpdate();
+            p.setFirstName(u.getFirstName());
+        }
+        
+        System.out.println("editPerson@Facade.java: Updated " + res + " things");
+        em.getTransaction().commit();
+        em.close();
+        
         return null;
     }
     
+    /**
+     *
+     * @param c The company to update
+     * @param n The new information
+     * @return The updated object
+     */
     @Override
-    public Company editCompany(Company c) {
-        return null;
+    public Company editCompany(Company c, Company n) {
+
+        EntityManager em = emf.createEntityManager();
+
+        Facade instance = new Facade(emf);
+        System.out.println("There are " + instance.getCompanies().size() + " companies");
+
+        //System.out.println("UPDATE Company SET cname=\"" + n.getCname() + "\" WHERE id=" + c.getId());
+        em.getTransaction().begin();
+
+        int res = 0;
+        if (n.getCname() != null) {
+            res += em.createQuery("UPDATE Company SET cname=\"" + n.getCname() + "\" WHERE id=" + c.getId()).executeUpdate();
+            c.setCname(n.getCname());
+        }
+
+        System.out.println("editCompany@Facade.java: Updated " + res + " things");
+        //c.setCname(n.getCname());
+        em.getTransaction().commit();
+        em.close();
+
+        return c;
     }
-    
+
     @Override
     public Person deletePerson(Person p) {
-        return null;
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        int res = em.createQuery("DELETE FROM Person WHERE id=" + p.getId()).executeUpdate();
+        System.out.println("deletePerson@Facade.java: Updated " + res + " things");
+        em.getTransaction().commit();
+        em.close();
+        return p;
+    }
+
+    @Override
+    public Company deleteCompany(Company c) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        int res = em.createQuery("DELETE FROM Company WHERE id=" + c.getId()).executeUpdate();
+        System.out.println("deleteCompany@Facade.java: Updated " + res + " things");
+        em.getTransaction().commit();
+        em.close();
+        return c;
     }
     
     @Override
-    public Company deleteCompany(Company c) {
+    public Cityinfo persistCityinfo(Cityinfo c) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.persist(c);
+        em.getTransaction().commit();
+        em.close();
+
+        return c;
+    }
+    
+    /*
+    @Override
+    public Cityinfo editCityinfo(Cityinfo c, Cityinfo n) {
         return null;
+    }
+    */
+    @Override
+    public Cityinfo deleteCityinfo(Cityinfo c) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        int res = em.createQuery("DELETE FROM Cityinfo WHERE zipcode=" + c.getZipcode()).executeUpdate();
+        System.out.println("deleteCityinfo@Facade.java: Updated " + res + " things");
+        em.getTransaction().commit();
+        em.close();
+        return c;
+    }
+    
+    @Override
+    public Cityinfo getCityinfoById(int id) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Cityinfo> result = em.createNamedQuery("Cityinfo.findByZipcode", Cityinfo.class);
+        Cityinfo tmp = result.setParameter("zipcode", id).getSingleResult();
+        em.close();
+        return tmp;
     }
 }

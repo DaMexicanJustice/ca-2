@@ -6,6 +6,7 @@
 package facade;
 
 import entity.Address;
+import entity.Cityinfo;
 import entity.Company;
 import entity.Hobby;
 import entity.Infoentity;
@@ -34,13 +35,13 @@ public interface IFacade {
 
     public Hobby persistHobby(Hobby h);
     
-    public int getInfoEntityById(int id);
+    public Infoentity getInfoEntityById(int id);
 
     public Person getPersonById(int id);
 
     public List getPeople();
 
-    public ArrayList getPeopleIn(int zipcode);
+    public List<Person> getPeopleIn(int zipcode);
 
     public List getPhonesById(int id);
 
@@ -48,12 +49,19 @@ public interface IFacade {
 
     public Phone persistPhone(Phone p);
     
-    public Person editPerson(Person p);
+    public Person editPerson(Person p, Person u);
     
-    public Company editCompany(Company c);
+    public Company editCompany(Company c, Company n);
     
     public Person deletePerson(Person p);
     
     public Company deleteCompany(Company c);
     
+    public Cityinfo persistCityinfo(Cityinfo c);
+    
+    //public Cityinfo editCityinfo(Cityinfo c, Cityinfo n);
+    
+    public Cityinfo deleteCityinfo(Cityinfo c);
+    
+    public Cityinfo getCityinfoById(int id);
 }

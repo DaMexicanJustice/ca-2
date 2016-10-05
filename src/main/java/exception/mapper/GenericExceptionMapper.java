@@ -1,31 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package exception.mapper;
+package exception;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import exception.error.GenericException;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
 
 /**
  *
  * @author xboxm
  */
-public class GenericExceptionMapper implements ExceptionMapper<GenericException> {
+@Provider
+public class GenericExceptionMapper implements ExceptionMapper<Exception>{
     
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override
-    public Response toResponse(GenericException exception) {
+    public Response toResponse(Exception exception) {
         JsonObject job = new JsonObject();
-        job.addProperty("status", 500);
-        job.addProperty("msg", "The requested service does not exist");
-        return Response.status(500).entity(gson.toJson(job)).build();
+        if (exception instanceof NotFoundException ) {
+            job.addProperty("status", 404);
+            job.addProperty("msg", "The requested service does not exist");
+            return Response.status(404).entity(gson.toJson(job)).build();
+        } else {
+            job.addProperty("status", 500);
+            job.addProperty("msg", "Internal server error. We apologize for the inconvenience");
+            return Response.status(500).entity(gson.toJson(job)).build();
+        }
     }
     
 }
