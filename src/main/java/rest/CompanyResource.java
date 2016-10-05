@@ -67,8 +67,9 @@ public class CompanyResource {
     @GET
     @Path("comp/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getCompanies() {
+    public String getCompanies() throws CompanyNotFoundException {
         List<Company> allCompanies = facade.getCompanies();
+        if(allCompanies.isEmpty()) throw new CompanyNotFoundException("No companies registered in database");
         return jsonC.CompaniesContactInfoToJSON(allCompanies);
     }
 
@@ -77,8 +78,8 @@ public class CompanyResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String addCompany(String jsonCompany) throws ValidationErrorException {
         Company company = jsonC.JSONToCompany(jsonCompany);
-        if(company.getCname().isEmpty()){
-            throw new ValidationErrorException("Company name is missing.");
+        if(company.getCname().isEmpty() || company.getCvr().isEmpty()){
+            throw new ValidationErrorException("Company name or CVR is missing.");
         }
         Company c = facade.persistCompany(company);
         return jsonC.CompanyToJSON(c);
