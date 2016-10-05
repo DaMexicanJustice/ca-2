@@ -17,18 +17,19 @@ import java.util.Collection;
  * @author xboxm
  */
 public interface IJSONConverter {
-    public Phone JSONToPhone(String json);
-    public String PhoneCollectionToJSON(Collection<Phone> phone);
-    public Address JSONToAddress(String json);
-    public String AddressCollectionToJSON(Collection<Address> address);
-    public Person JSONToPerson(String json);
-    public String PersonToJSON(Person p);
-    public String PersonContactInfoToJSON(Person p);
-    public String PersonCollectionToJSON(Collection<Person> people);
-    public Company JSONToCompany(String json);
-    public String CompanyToJSON(Company c);
-    public String CompanyContactInfoToJSON(Company c);
-    public String CompaniesContactInfoToJSON(Collection<Company> companies);
-    public Hobby JSONToHobby(String json);
-    public String HobbyListToJSON(Collection<Hobby> hobby);
+    public Phone jsonToPhone(String json);
+    public String phoneCollectionToJSON(Collection<Phone> phone);
+    public Address jsonToAddress(String json);
+    public String addressCollectionToJSON(Collection<Address> address);
+    public Person jsonToPerson(String json);
+    public String personToJSON(Person p);
+    public String personContactInfoToJSON(Person p);
+    public String peopleContactInfoToJSON(Collection<Person> people);
+    public String personCollectionToJSON(Collection<Person> people);
+    public Company jsonToCompany(String json);
+    public String companyToJSON(Company c);
+    public String companyContactInfoToJSON(Company c);
+    public String companiesContactInfoToJSON(Collection<Company> companies);
+    public Hobby jsonToHobby(String json);
+    public String hobbyListToJSON(Collection<Hobby> hobby);
 }

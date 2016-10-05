@@ -60,7 +60,7 @@ public class PersonResource {
     public String getPersonById(@PathParam("id") int id) throws PersonNotFoundException {
         try {
             Person person = facade.getPersonById(id);
-            return jsonC.PersonToJSON(person);
+            return jsonC.personToJSON(person);
         } catch (NoResultException ex) {
             throw new PersonNotFoundException("No person with provided id found");
         }
@@ -72,8 +72,7 @@ public class PersonResource {
     public String getPersonContactInfoById(@PathParam("id") int id) throws PersonNotFoundException {
         try {
             Person person = facade.getPersonById(id);
-
-            return jsonC.PersonToJSON(person);
+            return jsonC.personContactInfoToJSON(person);
         } catch (NoResultException ex) {
             throw new PersonNotFoundException("No person with provided id found");
         }
@@ -85,14 +84,16 @@ public class PersonResource {
     public String getPeople() throws PersonNotFoundException {
         List<Person> people = facade.getPeople();
         if (people.isEmpty()) throw new PersonNotFoundException("No people found in database");
-        return jsonC.PersonCollectionToJSON(people);
+        return jsonC.personCollectionToJSON(people);
     }
 
     @GET
     @Path("all/contactinfo")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getContactInfoForPeople() {
-        return "Unsupported";
+    public String getContactInfoForPeople() throws PersonNotFoundException {
+        List<Person> people = facade.getPeople();
+        if (people.isEmpty()) throw new PersonNotFoundException("There are no people in the database");
+        return jsonC.peopleContactInfoToJSON(people);
     }
     
     @GET
@@ -101,21 +102,21 @@ public class PersonResource {
     public String getAllPeopleIn(@PathParam("zip") int zip) throws PersonNotFoundException {
         Collection<Person> peopleInZip = facade.getPeopleIn(zip);
         if (peopleInZip.isEmpty()) throw new PersonNotFoundException("No people with registered in that area");
-        return jsonC.PersonCollectionToJSON(peopleInZip);
+        return jsonC.personCollectionToJSON(peopleInZip);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String addPerson(String jsonPerson) throws ValidationErrorException {
-        Person person = jsonC.JSONToPerson(jsonPerson);
+        Person person = jsonC.jsonToPerson(jsonPerson);
 
         if (person.getFirstName().isEmpty() || person.getLastName().isEmpty()) {
             throw new ValidationErrorException("Missing input fields. Verify all the fields");
         }
 
         Person p = facade.persistPerson(person);
-        return jsonC.PersonToJSON(p);
+        return jsonC.personToJSON(p);
     }
     
     @POST
@@ -123,12 +124,12 @@ public class PersonResource {
     public String editPerson(String jsonPerson) throws PersonNotFoundException, ValidationErrorException {
 
         try {
-            Person person = jsonC.JSONToPerson(jsonPerson);
+            Person person = jsonC.jsonToPerson(jsonPerson);
             if (person.getFirstName().isEmpty() || person.getLastName().isEmpty()) {
                 throw new ValidationErrorException("Missing necessary input fields");
             }
-            Person p = facade.editPerson(jsonC.JSONToPerson(jsonPerson));
-            return jsonC.PersonToJSON(p);
+            Person p = facade.editPerson(jsonC.jsonToPerson(jsonPerson));
+            return jsonC.personToJSON(p);
         } catch (NoResultException ex) {
             throw new PersonNotFoundException("No person with provided id found");
         }
