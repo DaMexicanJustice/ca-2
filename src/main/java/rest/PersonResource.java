@@ -51,7 +51,7 @@ public class PersonResource {
 
     @GET
     public String getText() {
-        return "Hello World";
+        return "Hello From Person Ressource!";
     }
 
     @GET

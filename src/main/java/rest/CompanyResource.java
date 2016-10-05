@@ -50,7 +50,7 @@ public class CompanyResource {
 
     @GET
     public String getText() {
-        return "Hello World";
+        return "Hello From Company Ressource!";
     }
 
     @GET

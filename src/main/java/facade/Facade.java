@@ -108,7 +108,7 @@ public class Facade implements IFacade {
     public Person getPersonById(int id) throws NoResultException {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Person> result = em.createNamedQuery("Person.findByPid", Person.class);
-        Person personFound = result.setParameter("personid", id).getSingleResult();
+        Person personFound = result.setParameter("pid", id).getSingleResult();
         return personFound;
     }
 
