@@ -91,8 +91,8 @@ public class CompanyResource {
     public String editCompany(String jsonCompany) throws CompanyNotFoundException, ValidationErrorException {
         try {
             Company company = jsonC.JSONToCompany(jsonCompany);
-            if (company.getCname().isEmpty()) {
-                throw new CompanyNotFoundException("Missing company name");
+            if (company.getCname().isEmpty() || company.getCvr().isEmpty()) {
+                throw new ValidationErrorException("Company name or CVR is missing.");
             }
             Company c = facade.editCompany(jsonC.JSONToCompany(jsonCompany));
             return jsonC.CompanyToJSON(c);
