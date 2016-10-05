@@ -209,11 +209,21 @@ public class Facade implements IFacade {
             p.setFirstName(u.getFirstName());
         }
         
+        if (u.getLastName() != null) {
+            res += em.createQuery("UPDATE Person SET lastName=\"" + u.getLastName()+ "\" WHERE id=" + p.getId()).executeUpdate();
+            p.setLastName(u.getLastName());
+        }
+        
+        if (u.getEmail()!= null) {
+            res += em.createQuery("UPDATE Person SET email=\"" + u.getEmail()+ "\" WHERE id=" + p.getId()).executeUpdate();
+            p.setEmail(u.getEmail());
+        }
+        
         System.out.println("editPerson@Facade.java: Updated " + res + " things");
         em.getTransaction().commit();
         em.close();
         
-        return null;
+        return p;
     }
     
     /**
