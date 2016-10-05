@@ -5,10 +5,32 @@
  */
 package exception.mapper;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import exception.error.PhonesNotFoundException;
+import static exception.mapper.CompanyNotFoundMapper.gson;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
+import org.glassfish.jersey.internal.util.ExceptionUtils;
+
 /**
  *
  * @author xboxm
  */
-public class PhonesNotFoundMapper {
+@Provider
+public class PhonesNotFoundMapper implements ExceptionMapper<PhonesNotFoundException> {
+    
+    static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    @Override
+    public Response toResponse(PhonesNotFoundException exception) {
+        com.google.gson.JsonObject job = new JsonObject();
+        job.addProperty("status", 404);
+        job.addProperty("msg", exception.getMessage());
+        job.addProperty("stackTrace", ExceptionUtils.exceptionStackTraceAsString(exception));
+        return Response.status(404).entity(gson.toJson(job)).build();
+    }
     
 }
