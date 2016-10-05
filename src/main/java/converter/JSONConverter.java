@@ -143,7 +143,15 @@ public class JSONConverter implements IJSONConverter {
     
     @Override
     public String peopleContactInfoToJSON(Collection<Person> people) {
-        return gson.toJson(people);
+        Collection<JsonObject> jobs = new ArrayList();
+        for (Person p : people) {
+            JsonObject job = new JsonObject();
+            job.addProperty("email", p.getEmail());
+            job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
+            job.addProperty("addresses", gson.toJson(p.getAddressCollection()));
+            jobs.add(job);
+        }
+        return gson.toJson(jobs);
     }
     
 }
