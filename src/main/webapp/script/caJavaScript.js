@@ -185,11 +185,19 @@ function loadPage() {
     //Get a list of all zip codes in Denmark
     $('.zipGet').on('click', function () {
         $.ajax({
+            url: 'api/cityinfo/zipcodes',
+            type: 'GET',
+            contentType: 'application/json',
             success: function (res) {
-                alert('Got all the zip codes in Denmark');
+                $("#zipcodes").append(
+                            "<tr>" +
+                        "<td class='tabletd'>" + res.zipcode + "</td>" +
+                        "</tr>"
+                        );
             },
             error: function (res) {
-                console.log('error');
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
             }
         });
     });

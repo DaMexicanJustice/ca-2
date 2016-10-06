@@ -319,4 +319,12 @@ public class Facade implements IFacade {
         em.close();
         return tmp;
     }
+    
+    @Override
+    public Collection getAllZipCodes() {
+       EntityManager em = emf.createEntityManager();
+       TypedQuery<Cityinfo> result = em.createNamedQuery("Cityinfo.findAll", Cityinfo.class); 
+       Collection<Cityinfo> zips = result.getResultList();
+       return zips;
+    }
 }

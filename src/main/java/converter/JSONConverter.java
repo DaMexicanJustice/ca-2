@@ -10,6 +10,7 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import entity.Address;
+import entity.Cityinfo;
 import entity.Company;
 import entity.Hobby;
 import entity.Infoentity;
@@ -152,6 +153,11 @@ public class JSONConverter implements IJSONConverter {
             jobs.add(job);
         }
         return gson.toJson(jobs);
+    }
+    
+    @Override
+    public String zipCollectionToJSON(Collection<Cityinfo> zips) {
+        return gson.toJson(zips);
     }
     
 }

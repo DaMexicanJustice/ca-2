@@ -12,7 +12,7 @@ import entity.Hobby;
 import entity.Infoentity;
 import entity.Person;
 import entity.Phone;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -64,4 +64,6 @@ public interface IFacade {
     public Cityinfo deleteCityinfo(Cityinfo c);
     
     public Cityinfo getCityinfoById(int id);
+    
+    public Collection getAllZipCodes();
 }
