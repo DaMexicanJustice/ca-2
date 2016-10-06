@@ -327,4 +327,13 @@ public class Facade implements IFacade {
        Collection<Cityinfo> zips = result.getResultList();
        return zips;
     }
+    
+    @Override
+    public Collection getCompaniesWithPopulationGreaterThan(int minPop) {
+       EntityManager em = emf.createEntityManager();
+       TypedQuery<Company> result = em.createNamedQuery("Company.findByNoOfEmployees", Company.class); 
+       result.setParameter("c.noOfEmployees", minPop);
+       Collection<Company> companies = result.getResultList();
+       return companies;
+    }
 }

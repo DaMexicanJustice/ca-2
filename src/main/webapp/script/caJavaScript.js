@@ -195,7 +195,7 @@ function loadPage() {
                         "</tr>"
                         );
             },
-            error: function (res) {
+            error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }

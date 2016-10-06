@@ -66,4 +66,6 @@ public interface IFacade {
     public Cityinfo getCityinfoById(int id);
     
     public Collection getAllZipCodes();
+    
+    public Collection getCompaniesWithPopulationGreaterThan(int minPop);
 }

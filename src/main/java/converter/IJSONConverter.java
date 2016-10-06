@@ -34,4 +34,5 @@ public interface IJSONConverter {
     public String companiesContactInfoToJSON(Collection<Company> companies);
     public Hobby jsonToHobby(String json);
     public String hobbyListToJSON(Collection<Hobby> hobby);
+    public String companyCollectionToJSON(Collection<Company> companies);
 }

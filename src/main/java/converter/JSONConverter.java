@@ -160,4 +160,9 @@ public class JSONConverter implements IJSONConverter {
         return gson.toJson(zips);
     }
     
+    @Override
+    public String companyCollectionToJSON(Collection<Company> companies) {
+        return gson.toJson(companies);
+    }
+    
 }
