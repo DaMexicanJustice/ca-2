@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 /**
@@ -339,6 +340,7 @@ public class Facade implements IFacade {
     public Collection getPeopleByHobby(String hobby) {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyName", Hobby.class);
+        result.setParameter("hobbyName", hobby);
         Collection<Hobby> hobbies = result.getResultList();
         Collection<Person> people = new ArrayList();
         for (Hobby h : hobbies) {
@@ -346,4 +348,14 @@ public class Facade implements IFacade {
         }
         return people;
     }
+    
+    @Override
+    public Person getPersonByHobby(String hobby) throws NoResultException {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyName", Hobby.class);
+        result.setParameter("hobbyName", hobby);
+        Hobby h = result.getSingleResult();
+        return h.getFkId();
+    }
+    
 }
