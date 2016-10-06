@@ -51,38 +51,29 @@ function loadPage() {
         });
     });
 
-    //edit person
-    $('.edit').on('click', function () {
-        $.ajax({
-            success: function (res) {
-                alert('edited');
-            },
-            error: function (res) {
-                console.log('error');
-            }
-        });
-    });
-
-    //delete person
-    $('.delete').on('click', function () {
-        $.ajax({
-            success: function (res) {
-                alert('deleted');
-            },
-            error: function (res) {
-                console.log('error');
-            }
-        });
-    });
-
     //Get persons with a given hobby
     $('.givHobGet').on('click', function () {
         $.ajax({
-            success: function (res) {
-                alert('got all persons with the given hobby');
+            url: 'api/hobby/all/' + $("#givenHobby").val(),
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (entry) {
+                $("people").append(
+                        "<tr>" +
+                        "<td class='tabletd'>" + entry.pid + "</td>" +
+                        "<td class='tabletd'>" + entry.email + "</td>" +
+                        "<td class='tabletd'>" + entry.firstName + "</td>" +
+                        "<td class='tabletd'>" + entry.lastName + "</td>" +
+                        "<td class='tabletd'>" + entry.hobbyCollection + "</td>" +
+                        "<td class='tabletd'>" + entry.phoneCollection + "</td>" +
+                        "<td class='tabletd'>" + entry.addressCollection + "</td>" +
+                        "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
+                        "</tr>"
+                        );
             },
-            error: function (res) {
-                console.log('error');
+            error: function (error) {
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
             }
         });
     });
@@ -107,23 +98,40 @@ function loadPage() {
                         "</tr>"
                         );
             },
-            error: function () {
+            error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 
     //Get the count of people with a given hobby
     $('.givCoHobGet').on('click', function () {
         $.ajax({
-            success: function (res) {
-                alert('Got the count of people with this given hobby');
+            url: 'api/hobby/all/' + $("#givenHobby").val(),
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (entry) {
+                $("people").append(
+                        "<tr>" +
+                        "<td class='tabletd'>" + entry.pid + "</td>" +
+                        "<td class='tabletd'>" + entry.email + "</td>" +
+                        "<td class='tabletd'>" + entry.firstName + "</td>" +
+                        "<td class='tabletd'>" + entry.lastName + "</td>" +
+                        "<td class='tabletd'>" + entry.hobbyCollection + "</td>" +
+                        "<td class='tabletd'>" + entry.phoneCollection + "</td>" +
+                        "<td class='tabletd'>" + entry.addressCollection + "</td>" +
+                        "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
+                        "</tr>"
+                        );
             },
-            error: function (res) {
-                console.log('error');
+            error: function (error) {
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 
     //Get person by ID
@@ -152,6 +160,7 @@ function loadPage() {
                 $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 
     //Get person info by ID
@@ -180,6 +189,7 @@ function loadPage() {
                 $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 
     //Get a list of all zip codes in Denmark
@@ -200,6 +210,7 @@ function loadPage() {
                 $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 
     //Get list of companies with more than xx employees
@@ -217,6 +228,7 @@ function loadPage() {
                         "<td class='tabletd'>" + res.description + "</td>" +
                         "<td class='tabletd'>" + res.no_of_employees + "</td>" +
                         "<td class='tabletd'>" + res.market_value + "</td>" +
+                        "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
             },
@@ -225,6 +237,7 @@ function loadPage() {
                 $("#failed").show().html(json["msg"]);
             }
         });
+        editable();
     });
 }
 
