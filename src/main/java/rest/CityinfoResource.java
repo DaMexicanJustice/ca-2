@@ -7,16 +7,17 @@ package rest;
 
 import converter.IJSONConverter;
 import converter.JSONConverter;
+import entity.Cityinfo;
+import exception.error.CityNotFoundException;
 import facade.Facade;
 import facade.IFacade;
+import java.util.Collection;
 import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -49,7 +50,9 @@ public class CityinfoResource {
     @GET
     @Path("zipcodes")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllZipCodes() {
-        return jsonC.zipCollectionToJSON(facade.getAllZipCodes());
+    public String getAllZipCodes() throws CityNotFoundException {
+        Collection<Cityinfo> zipcodes = facade.getAllZipCodes();
+        if (zipcodes.isEmpty()) throw new CityNotFoundException("No cities in database");
+        return jsonC.zipCollectionToJSON(zipcodes);
     }
 }

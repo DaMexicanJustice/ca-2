@@ -7,8 +7,12 @@ package rest;
 
 import converter.IJSONConverter;
 import converter.JSONConverter;
+import entity.Person;
+import exception.error.HobbiesNotFoundException;
 import facade.Facade;
 import facade.IFacade;
+import java.util.Collection;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -48,14 +52,20 @@ public class HobbyResource {
     @GET
     @Path("single/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersonByHobby(@PathParam("hobby") String hobby) {
+    public String getPersonByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException {
+        try {
         return jsonC.personToJSON(facade.getPersonByHobby(hobby));
+        } catch(NoResultException ex) {
+            throw new HobbiesNotFoundException("No person found with that hobby");
+        }
     }
     
     @GET
     @Path("all/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPeopleByHobby(@PathParam("hobby") String hobby) {
-        return jsonC.personCollectionToJSON(facade.getPeopleByHobby(hobby));
+    public String getPeopleByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException {
+        Collection<Person> people = facade.getPeopleByHobby(hobby);
+        if (people.isEmpty()) throw new HobbiesNotFoundException("There are no people with that hobby");
+        return jsonC.personCollectionToJSON(people);
     }
 }
