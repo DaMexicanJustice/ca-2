@@ -88,7 +88,7 @@ public class JSONConverter implements IJSONConverter {
         JsonObject job = new JsonObject();
         job.addProperty("email", p.getEmail());
         job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
-        job.addProperty("address", gson.toJson(p.getAddressCollection()));
+        job.addProperty("address", gson.toJson(p.getAddress()));
         return gson.toJson(job);
     }
 
@@ -108,7 +108,7 @@ public class JSONConverter implements IJSONConverter {
         job.addProperty("name", c.getCname());
         job.addProperty("email", c.getEmail());
         job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
-        job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
+        job.addProperty("addresses", gson.toJson(c.getAddress()));
         return gson.toJson(job);
     }
     
@@ -120,7 +120,7 @@ public class JSONConverter implements IJSONConverter {
             job.addProperty("name", c.getCname());
             job.addProperty("email", c.getEmail());
             job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
-            job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
+            job.addProperty("addresses", gson.toJson(c.getAddress()));
             jobs.add(job);
         }
         return gson.toJson(jobs);
@@ -151,7 +151,7 @@ public class JSONConverter implements IJSONConverter {
             JsonObject job = new JsonObject();
             job.addProperty("email", p.getEmail());
             job.addProperty("phones", gson.toJson(p.getPhoneCollection()));
-            job.addProperty("addresses", gson.toJson(p.getAddressCollection()));
+            job.addProperty("addresses", gson.toJson(p.getAddress()));
             jobs.add(job);
         }
         return gson.toJson(jobs);
