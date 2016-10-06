@@ -37,7 +37,7 @@ public class RestTest {
     public void getCompanyByCVR() {
         given().pathParam("n1", "123456").when().get("/api/company/comp/all/{n1}").then().statusCode(200).body("cname", equalTo("The company"));
     }
-    /*
+
     @Test
     public void testAddCompany() {
         Company c = new Company();
@@ -53,7 +53,7 @@ public class RestTest {
         
         //fail("No implementation");
     }
-    */
+    
     @Test
     public void editCompany() {
         Company c = new Company();
