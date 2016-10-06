@@ -205,11 +205,24 @@ function loadPage() {
     //Get list of companies with more than xx employees
     $('.comGet').on('click', function () {
         $.ajax({
+            url: 'api/company/all/population/' + $("#minpop").val(),
+            type: 'GET',
+            contentType: 'application/json',
             success: function (res) {
-                alert('Got the companies with more than xx employees');
+                $("#companies").append(
+                            "<tr>" +
+                        "<td class='tabletd'>" + res.cid + "</td>" +
+                        "<td class='tabletd'>" + res.cvr + "</td>" +
+                        "<td class='tabletd'>" + res.cname + "</td>" +
+                        "<td class='tabletd'>" + res.description + "</td>" +
+                        "<td class='tabletd'>" + res.no_of_employees + "</td>" +
+                        "<td class='tabletd'>" + res.market_value + "</td>" +
+                        "</tr>"
+                        );
             },
             error: function (res) {
-                console.log('error');
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
             }
         });
     });
