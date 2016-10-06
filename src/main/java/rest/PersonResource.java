@@ -24,6 +24,7 @@ import facade.IFacade;
 import java.util.Collection;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 
@@ -134,6 +135,12 @@ public class PersonResource {
             throw new PersonNotFoundException("No person with provided id found");
         }
 
+    }
+    
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String deletePerson(String jsonPerson) throws PersonNotFoundException, ValidationErrorException { 
+        return "Unsupported";
     }
 
 }

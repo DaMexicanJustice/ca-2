@@ -14,6 +14,7 @@
                 background-color: lightblue;
             }
         </style>
+        <div id="failed" class="alert alert-danger" role="alert"></div>
         <h1>Hello World!</h1>
         <!-- DON'T EDIT THE THE ID's in these div three divs! -->
         <div id="authors"> Michael Veilis, Lasse Hansen, Patrick Johansen and Christian Jacobsen </div> 
@@ -25,16 +26,17 @@
             <table class="datacontainer" id="Personhdr">
                 <thead>
                     <tr class="headtr">
+                        <td class="tabletd">ID</td>
                         <td class="tabletd">Email</td>
                         <td class="tabletd">First Name</td>
                         <td class="tabletd">Last Name</td>
-                        <td class="tabletd">Hobby Name</td>
-                        <td class="tabletd">Phone Number</td>
+                        <td class="tabletd">Hobbies</td>
+                        <td class="tabletd">Phone Numbers</td>
                         <td class="tabletd">Street</td>
                         <td class="tabletd">Edit</td>
                     </tr>
                 </thead>
-                <tbody class="datacontainer" id="Persons">
+                <tbody class="datacontainer" id="people">
                     <tr class="bodytr">
                         <td class="tablebtd">Tmp</td>
                         <td class="tablebtd">Tmp</td>
@@ -73,12 +75,12 @@
                 <input id="CFirstName" type="text"><br>
                 <span>LastName</span><br>
                 <input id="CLastName" type="text"><br>
-                <span>Hobby</span><br>
-                <input id="CHobbyName" type="text"><br>
-                <span>PhoneNumber</span><br>
-                <input id="CPhoneNumber" type="text"><br>
                 <span>Street</span><br>
                 <input id="CStreet" type="text"><br>
+                <span>PhoneNumber</span><br>
+                <input id="CPhoneNumber" type="text"><br>
+                <span>Hobby</span><br>
+                <input id="CHobbyName" type="text"><br>
                 <button class="create">Add</button>
             </div>
         </div>
