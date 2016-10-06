@@ -48,7 +48,7 @@ public class Hobby implements Serializable {
     private String description;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
     @ManyToOne
-    private Infoentity fkId;
+    private Person fkId;
 
     public Hobby() {
     }
@@ -81,11 +81,11 @@ public class Hobby implements Serializable {
         this.description = description;
     }
 
-    public Infoentity getFkId() {
+    public Person getFkId() {
         return fkId;
     }
 
-    public void setFkId(Infoentity fkId) {
+    public void setFkId(Person fkId) {
         this.fkId = fkId;
     }
 

@@ -17,8 +17,6 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -335,5 +333,17 @@ public class Facade implements IFacade {
        result.setParameter("c.noOfEmployees", minPop);
        Collection<Company> companies = result.getResultList();
        return companies;
+    }
+    
+    @Override
+    public Collection getPeopleByHobby(String hobby) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyName", Hobby.class);
+        Collection<Hobby> hobbies = result.getResultList();
+        Collection<Person> people = new ArrayList();
+        for (Hobby h : hobbies) {
+            people.add(h.getFkId());
+        }
+        return people;
     }
 }
