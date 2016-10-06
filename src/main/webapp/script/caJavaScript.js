@@ -31,6 +31,7 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             });
         },
         error: function (error) {
@@ -41,12 +42,37 @@ function loadPage() {
 
     //Create person
     $('.create').on('click', function () {
+        var person = {
+            firstName : $("#CFirstName").val(),
+            lastName : $("#CLastName").val(),
+            email : $("#CEmail").val(),
+            street : $("CStreet").val(),
+            phoneNumber : $("#CPhoneNumber").val(),
+            Hobby : $("#CHobbyName").val()
+        };
         $.ajax({
+            url: 'api/person',
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(person),
             success: function (res) {
-                alert('created');
+                $('#people').append(
+                        "<tr>" +
+                        "<td class='tabletd'>" + res.pid + "</td>" +
+                        "<td class='tabletd'>" + res.firstName + "</td>" +
+                        "<td class='tabletd'>" + res.lastName + "</td>" +
+                        "<td class='tabletd'>" + res.email + "</td>" +
+                        "<td class='tabletd'>" + res.hobbyCollection + "</td>" +
+                        "<td class='tabletd'>" + res.phoneCollection + "</td>" +
+                        "<td class='tabletd'>" + res.addressCollection + "</td>" +
+                        "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
+                        "</tr>"
+                        );
+                editable();
             },
             error: function (res) {
-                console.log('error');
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
             }
         });
     });
@@ -54,7 +80,7 @@ function loadPage() {
     //Get persons with a given hobby
     $('.givHobGet').on('click', function () {
         $.ajax({
-            url: 'api/hobby/all/' + $("#givenHobby").val(),
+            url: 'api/hobby/single/' + $("#givenHobby").val(),
             type: 'GET',
             contentType: 'application/json',
             success: function (entry) {
@@ -70,6 +96,7 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
@@ -97,13 +124,13 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 
     //Get the count of people with a given hobby
@@ -125,13 +152,13 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 
     //Get person by ID
@@ -154,13 +181,13 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 
     //Get person info by ID
@@ -183,13 +210,13 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 
     //Get a list of all zip codes in Denmark
@@ -204,13 +231,13 @@ function loadPage() {
                         "<td class='tabletd'>" + res.zipcode + "</td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (error) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 
     //Get list of companies with more than xx employees
@@ -231,13 +258,13 @@ function loadPage() {
                         "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
                         "</tr>"
                         );
+                editable();
             },
             error: function (res) {
                 var json = JSON.parse(error.responseText);
                 $("#failed").show().html(json["msg"]);
             }
         });
-        editable();
     });
 }
 
