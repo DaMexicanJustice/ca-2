@@ -48,8 +48,8 @@ public class HobbyResource {
     @GET
     @Path("single/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersonByHobby() {
-        return "Unsupported";
+    public String getPersonByHobby(@PathParam("hobby") String hobby) {
+        return jsonC.personToJSON(facade.getPersonByHobby(hobby));
     }
     
     @GET
