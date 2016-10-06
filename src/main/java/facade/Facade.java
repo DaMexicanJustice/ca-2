@@ -17,8 +17,6 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -318,5 +316,34 @@ public class Facade implements IFacade {
         Cityinfo tmp = result.setParameter("zipcode", id).getSingleResult();
         em.close();
         return tmp;
+    }
+    
+    @Override
+    public Collection getAllZipCodes() {
+       EntityManager em = emf.createEntityManager();
+       TypedQuery<Cityinfo> result = em.createNamedQuery("Cityinfo.findAll", Cityinfo.class); 
+       Collection<Cityinfo> zips = result.getResultList();
+       return zips;
+    }
+    
+    @Override
+    public Collection getCompaniesWithPopulationGreaterThan(int minPop) {
+       EntityManager em = emf.createEntityManager();
+       TypedQuery<Company> result = em.createNamedQuery("Company.findByNoOfEmployees", Company.class); 
+       result.setParameter("c.noOfEmployees", minPop);
+       Collection<Company> companies = result.getResultList();
+       return companies;
+    }
+    
+    @Override
+    public Collection getPeopleByHobby(String hobby) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Hobby> result = em.createNamedQuery("Hobby.findByHobbyName", Hobby.class);
+        Collection<Hobby> hobbies = result.getResultList();
+        Collection<Person> people = new ArrayList();
+        for (Hobby h : hobbies) {
+            people.add(h.getFkId());
+        }
+        return people;
     }
 }

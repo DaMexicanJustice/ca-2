@@ -36,7 +36,9 @@ public class ApplicationConfig extends Application {
         resources.add(exception.mapper.HobbiesNotFoundMapper.class);
         resources.add(exception.mapper.PersonNotFoundMapper.class);
         resources.add(exception.mapper.PhonesNotFoundMapper.class);
+        resources.add(rest.CityinfoResource.class);
         resources.add(rest.CompanyResource.class);
+        resources.add(rest.HobbyResource.class);
         resources.add(rest.PersonResource.class);
     }
     

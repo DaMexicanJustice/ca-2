@@ -6,6 +6,7 @@
 package converter;
 
 import entity.Address;
+import entity.Cityinfo;
 import entity.Company;
 import entity.Hobby;
 import entity.Person;
@@ -17,6 +18,7 @@ import java.util.Collection;
  * @author xboxm
  */
 public interface IJSONConverter {
+    public String zipCollectionToJSON(Collection<Cityinfo> zips);
     public Phone jsonToPhone(String json);
     public String phoneCollectionToJSON(Collection<Phone> phone);
     public Address jsonToAddress(String json);
@@ -32,4 +34,5 @@ public interface IJSONConverter {
     public String companiesContactInfoToJSON(Collection<Company> companies);
     public Hobby jsonToHobby(String json);
     public String hobbyListToJSON(Collection<Hobby> hobby);
+    public String companyCollectionToJSON(Collection<Company> companies);
 }

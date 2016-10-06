@@ -52,6 +52,13 @@ public class CompanyResource {
     public String getText() {
         return "Hello From Company Ressource!";
     }
+    
+    @GET
+    @Path("all/population/{minPop}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getCompaniesWithPopulationGreaterThan(@PathParam("minPop") int minPop) {
+        return jsonC.companyCollectionToJSON(facade.getCompaniesWithPopulationGreaterThan(minPop));
+    }
 
     @GET
     @Path("comp/all/{cvr}")
@@ -102,4 +109,5 @@ public class CompanyResource {
             throw new CompanyNotFoundException("The company was not found");
         }
     }
+    
 }
