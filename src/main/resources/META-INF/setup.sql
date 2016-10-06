@@ -15,12 +15,20 @@ CREATE TABLE CITYINFO (
     CITY VARCHAR(50)
 );
 
+CREATE TABLE address (
+    addressid INT PRIMARY KEY AUTO_INCREMENT,
+    street VARCHAR(40),
+    additionalinfo VARCHAR(200),
+    fk_zipcode VARCHAR(5),
+    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zip)
+);
+
 CREATE TABLE infoentity (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE,
     typeof VARCHAR(20),
     fk_addressid INT,
-    FOREIGN KEY (fk_addressid) REFERENCES address(adressid)
+    FOREIGN KEY (fk_addressid) REFERENCES address(addressid)
 );
 
 CREATE TABLE company (
@@ -51,14 +59,5 @@ CREATE TABLE phone (
     description VARCHAR(50),
     fk_id INT,
     FOREIGN KEY(fk_id) REFERENCES infoentity(id)
-);
-
-CREATE TABLE address (
-    addressid INT PRIMARY KEY AUTO_INCREMENT,
-    street VARCHAR(40),
-    additionalinfo VARCHAR(200),
-    fk_id INT,
-    fk_zipcode VARCHAR(5),
-    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zip)
 );
 

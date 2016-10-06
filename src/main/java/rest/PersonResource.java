@@ -106,7 +106,7 @@ public class PersonResource {
         Collection<Person> peopleInZip =  facade.getPeopleIn(zip);
         if (peopleInZip.isEmpty()) throw new PersonNotFoundException("No people with registered in that area");
         return jsonC.personCollectionToJSON(peopleInZip);
-    }
+    } 
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
