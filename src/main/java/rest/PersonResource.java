@@ -45,7 +45,7 @@ public class PersonResource {
      * Creates a new instance of PersonResource
      */
     public PersonResource() {
-        facade = new Facade(Persistence.createEntityManagerFactory("deploy"));
+        facade = new Facade(Persistence.createEntityManagerFactory("test"));
         jsonC = new JSONConverter();
     }
 

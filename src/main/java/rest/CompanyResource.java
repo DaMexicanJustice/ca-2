@@ -44,7 +44,7 @@ public class CompanyResource {
      * Creates a new instance of CompanyResource
      */
     public CompanyResource() {
-        facade = new Facade(Persistence.createEntityManagerFactory("deploy"));
+        facade = new Facade(Persistence.createEntityManagerFactory("test"));
         jsonC = new JSONConverter();
     }
 
@@ -78,9 +78,10 @@ public class CompanyResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String addCompany(String jsonCompany) throws ValidationErrorException {
+        System.out.println("addcompany runs");
         Company company = jsonC.jsonToCompany(jsonCompany);
-        if(company.getCname().isEmpty() || company.getCvr().isEmpty()){
-            throw new ValidationErrorException("Company name or CVR is missing.");
+        if(company.getId() == null){
+            throw new ValidationErrorException("Company has no id (THIS IS ID - NOT CID)");
         }
         Company c = facade.persistCompany(company);
         return jsonC.companyToJSON(c);
