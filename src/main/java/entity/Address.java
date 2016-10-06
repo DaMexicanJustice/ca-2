@@ -5,7 +5,9 @@
  */
 package entity;
 
+import static entity.deploy.Hobby_.fkId;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +18,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -50,9 +54,8 @@ public class Address implements Serializable {
     @JoinColumn(name = "fk_zipcode", referencedColumnName = "zipcode")
     @ManyToOne
     private Cityinfo fkZipcode;
-    @JoinColumn(name = "fk_id", referencedColumnName = "id")
-    @ManyToOne
-    private Infoentity fkId;
+    @OneToMany
+    private Collection<Infoentity> infoEntities;
 
     public Address() {
     }
@@ -92,14 +95,16 @@ public class Address implements Serializable {
     public void setFkZipcode(Cityinfo fkZipcode) {
         this.fkZipcode = fkZipcode;
     }
-
-    public Infoentity getFkId() {
-        return fkId;
+    
+    @XmlTransient
+    public Collection<Infoentity> getInfoEntities() {
+        return infoEntities;
     }
 
-    public void setFkId(Infoentity fkId) {
-        this.fkId = fkId;
+    public void setInfoEntities(Collection<Infoentity> infoEntities) {
+        this.infoEntities = infoEntities;
     }
+
 
     @Override
     public int hashCode() {

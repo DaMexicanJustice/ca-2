@@ -127,22 +127,16 @@ public class Facade implements IFacade {
         
         EntityManager em = emf.createEntityManager();
         
-        Facade instance = new Facade(emf);
-        
         TypedQuery<Address> res = em.createNamedQuery("Address.findByfkZipcode", Address.class);
-        List<Address> tmpList = res.setParameter("fkZipcode", instance.getCityinfoById(zipcode)).getResultList();
+        List<Address> tmpList = res.setParameter("fkZipcode", zipcode).getResultList();
 
         System.out.println("AddressList length is " + tmpList.size());
         
         for(Address x : tmpList) {
-            int fkid = x.getFkId().getId();
-            //System.out.println(x.getStreet() + " has fkid " + x.getFkId().getId());
-            //System.out.println("This person is " + instance.getPersonById(fkid).getFirstName());
-            finalList.add(instance.getPersonById(fkid));
+            //finalList.add(x.getFkId());
         }
 
         return finalList;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

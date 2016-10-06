@@ -10,15 +10,17 @@
 
 USE ca2;
 
-CREATE TABLE cityinfo (
-    zip VARCHAR(5) PRIMARY KEY,
-    city VARCHAR(50)
+CREATE TABLE CITYINFO (
+    ZIP VARCHAR(5) PRIMARY KEY,
+    CITY VARCHAR(50)
 );
 
 CREATE TABLE infoentity (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) UNIQUE,
-    typeof VARCHAR(20)
+    typeof VARCHAR(20),
+    fk_addressid INT,
+    FOREIGN KEY (fk_addressid) REFERENCES address(adressid)
 );
 
 CREATE TABLE company (
@@ -57,7 +59,6 @@ CREATE TABLE address (
     additionalinfo VARCHAR(200),
     fk_id INT,
     fk_zipcode VARCHAR(5),
-    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zip),
-    FOREIGN KEY (fk_id) REFERENCES infoentity(id)
+    FOREIGN KEY (fk_zipcode) REFERENCES cityinfo(zip)
 );
 

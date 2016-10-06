@@ -12,43 +12,44 @@ $(document).ready(function () {
 
 function loadPage() {
 
-    //Start up
-    $.ajax({
-        url: 'api/person/all/complete',
-        type: 'GET',
-        contentType: 'application/json',
-        success: function (res) {
-            res.forEach(function (entry) {
-                $('#people').append(
-                        "<tr>" +
-                        "<td class='tabletd'>" + entry.pid + "</td>" +
-                        "<td class='tabletd'>" + entry.email + "</td>" +
-                        "<td class='tabletd'>" + entry.firstName + "</td>" +
-                        "<td class='tabletd'>" + entry.lastName + "</td>" +
-                        "<td class='tabletd'>" + entry.hobbyCollection + "</td>" +
-                        "<td class='tabletd'>" + entry.phoneCollection + "</td>" +
-                        "<td class='tabletd'>" + entry.addressCollection + "</td>" +
-                        "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
-                        "</tr>"
-                        );
-                editable();
-            });
-        },
-        error: function (error) {
-            var json = JSON.parse(error.responseText);
-            $("#failed").show().html(json["msg"]);
-        }
+    //Start up **Stack overflows**
+    $(".getAllPeople").on("click", function () {
+        $.ajax({
+            url: 'api/person/all/complete',
+            type: 'GET',
+            contentType: 'application/json',
+            success: function (entry) {
+                    $('#people').append(
+                            "<tr>" +
+                            "<td class='tabletd'>" + entry.pid + "</td>" +
+                            "<td class='tabletd'>" + entry.email + "</td>" +
+                            "<td class='tabletd'>" + entry.firstName + "</td>" +
+                            "<td class='tabletd'>" + entry.lastName + "</td>" +
+                            "<td class='tabletd'>" + entry.hobbyCollection + "</td>" +
+                            "<td class='tabletd'>" + entry.phoneCollection + "</td>" +
+                            "<td class='tabletd'>" + entry.addressCollection + "</td>" +
+                            "<td><button class='del'>delete</button> / <button class='edit'>edit</button></td>" +
+                            "</tr>"
+                            );
+                    editable();
+            },
+            error: function (error) {
+                var json = JSON.parse(error.responseText);
+                $("#failed").show().html(json["msg"]);
+            }
+        });
+
     });
 
     //Create person
     $('.create').on('click', function () {
         var person = {
-            firstName : $("#CFirstName").val(),
-            lastName : $("#CLastName").val(),
-            email : $("#CEmail").val(),
-            street : $("CStreet").val(),
-            phoneNumber : $("#CPhoneNumber").val(),
-            Hobby : $("#CHobbyName").val()
+            firstName: $("#CFirstName").val(),
+            lastName: $("#CLastName").val(),
+            email: $("#CEmail").val(),
+            street: $("CStreet").val(),
+            phoneNumber: $("#CPhoneNumber").val(),
+            Hobby: $("#CHobbyName").val()
         };
         $.ajax({
             url: 'api/person',
@@ -164,7 +165,7 @@ function loadPage() {
     //Get person by ID
     $('.byIdGet').on('click', function () {
         $.ajax({
-            url: 'api/person/all/' + $("#personId").val(),
+            url: 'api/person/complete/' + $("#personId").val(),
             type: 'GET',
             contentType: 'application/json',
             success: function (entry) {
@@ -227,7 +228,7 @@ function loadPage() {
             contentType: 'application/json',
             success: function (res) {
                 $("#zipcodes").append(
-                            "<tr>" +
+                        "<tr>" +
                         "<td class='tabletd'>" + res.zipcode + "</td>" +
                         "</tr>"
                         );
@@ -248,7 +249,7 @@ function loadPage() {
             contentType: 'application/json',
             success: function (res) {
                 $("#companies").append(
-                            "<tr>" +
+                        "<tr>" +
                         "<td class='tabletd'>" + res.cid + "</td>" +
                         "<td class='tabletd'>" + res.cvr + "</td>" +
                         "<td class='tabletd'>" + res.cname + "</td>" +

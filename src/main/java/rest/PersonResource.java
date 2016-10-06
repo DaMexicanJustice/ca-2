@@ -7,6 +7,7 @@ package rest;
 
 import converter.IJSONConverter;
 import converter.JSONConverter;
+import entity.Infoentity;
 import entity.Person;
 import exception.error.PersonNotFoundException;
 import exception.error.ValidationErrorException;
@@ -27,6 +28,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
+import javax.ws.rs.QueryParam;
 
 /**
  * REST Web Service
@@ -58,7 +60,7 @@ public class PersonResource {
     @GET
     @Path("complete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersonById(@PathParam("id") int id) throws PersonNotFoundException {
+    public String getPersonById(@QueryParam("id") @PathParam("id") int id) throws PersonNotFoundException {
         try {
             Person person = facade.getPersonById(id);
             return jsonC.personToJSON(person);
@@ -101,7 +103,7 @@ public class PersonResource {
     @Path("all/complete/zipcode/{zip}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllPeopleIn(@PathParam("zip") int zip) throws PersonNotFoundException {
-        Collection<Person> peopleInZip = facade.getPeopleIn(zip);
+        Collection<Person> peopleInZip =  facade.getPeopleIn(zip);
         if (peopleInZip.isEmpty()) throw new PersonNotFoundException("No people with registered in that area");
         return jsonC.personCollectionToJSON(peopleInZip);
     }
@@ -112,7 +114,7 @@ public class PersonResource {
     public String addPerson(String jsonPerson) throws ValidationErrorException {
         Person person = jsonC.jsonToPerson(jsonPerson);
 
-        if (person.getFirstName().isEmpty() || person.getLastName().isEmpty()) {
+        if (person.getFirstName().isEmpty() || person.getLastName().isEmpty() || person.getEmail().isEmpty())  {
             throw new ValidationErrorException("Missing input fields. Verify all the fields");
         }
 
@@ -126,7 +128,7 @@ public class PersonResource {
 
         try {
             Person person = jsonC.jsonToPerson(jsonPerson);
-            if (person.getFirstName().isEmpty() || person.getLastName().isEmpty()) {
+            if (person.getFirstName().isEmpty() || person.getLastName().isEmpty() || person.getEmail().isEmpty()) {
                 throw new ValidationErrorException("Missing necessary input fields");
             }
             Person p = facade.editPerson(facade.getPersonById(person.getPid()), person);

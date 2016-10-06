@@ -9,6 +9,7 @@ import converter.IJSONConverter;
 import converter.JSONConverter;
 import entity.Person;
 import exception.error.HobbiesNotFoundException;
+import exception.error.ValidationErrorException;
 import facade.Facade;
 import facade.IFacade;
 import java.util.Collection;
@@ -29,7 +30,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("hobby")
 public class HobbyResource {
-    
+
     private IFacade facade;
     private IJSONConverter jsonC;
 
@@ -48,24 +49,28 @@ public class HobbyResource {
     public String getText() {
         return "Hello from Hobby Ressource";
     }
-    
+
     @GET
     @Path("single/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPersonByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException {
+    public String getPersonByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException, ValidationErrorException {
+        if (hobby.equals("")) throw new ValidationErrorException("Missing hobby field");
         try {
-        return jsonC.personToJSON(facade.getPersonByHobby(hobby));
-        } catch(NoResultException ex) {
+            return jsonC.personToJSON(facade.getPersonByHobby(hobby));
+        } catch (NoResultException ex) {
             throw new HobbiesNotFoundException("No person found with that hobby");
         }
     }
-    
+
     @GET
     @Path("all/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPeopleByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException {
+    public String getPeopleByHobby(@PathParam("hobby") String hobby) throws HobbiesNotFoundException, ValidationErrorException {
+        if (hobby.equals("")) throw new ValidationErrorException("Missing hobby field");
         Collection<Person> people = facade.getPeopleByHobby(hobby);
-        if (people.isEmpty()) throw new HobbiesNotFoundException("There are no people with that hobby");
+        if (people.isEmpty()) {
+            throw new HobbiesNotFoundException("There are no people with that hobby");
+        }
         return jsonC.personCollectionToJSON(people);
     }
 }

@@ -14,7 +14,6 @@
                 background-color: lightblue;
             }
         </style>
-        <div id="failed" class="alert alert-danger" role="alert"></div>
         <h1>Hello World!</h1>
         <!-- DON'T EDIT THE THE ID's in these div three divs! -->
         <div id="authors"> Michael Veilis, Lasse Hansen, Patrick Johansen and Christian Jacobsen </div> 
@@ -44,13 +43,17 @@
                         <td class="tablebtd">Tmp</td>
                         <td class="tablebtd">Tmp</td>
                         <td class="tablebtd">Tmp</td>
+                        <td class="tablebtd">Tmp</td>
                         <td class="tablebtd"><button class="edit">edit</button><strong>/</strong><button class="delete">delete</button></td>
                     </tr>
                 </tbody>
             </table>
         </div><br>
+        <div id="failed" class="alert alert-danger" role="alert"></div>
         <div id="section">
             <div class="buttons">
+                <span>Get all people</span><br>
+                <button class="getAllPeople">Get</button><br><br>
                 <span>Get all persons with a given hobby</span><br>
                 <input id="givenHobby" type="text" style="width: 100px">
                 <button class="givHobGet">Get</button><br><br>
@@ -61,10 +64,10 @@
                 <input id="COPWH" type="text" style="width: 100px">
                 <button class="givCoHobGet">Get</button><br><br>
                 <span>Get Person by ID</span><br>
-                <input id="personId" type="text" style="width: 15px">
+                <input id="personId" type="text" style="width: 25px">
                 <button class="byIdGet">Get</button><br><br>
                 <span>Get Persons info by ID</span><br>
-                <input id="pInfoId" type="text" style="width: 15px">
+                <input id="pInfoId" type="text" style="width: 25px">
                 <button class="byInfoIdGet">Get</button>
             </div>
             <div id="createPerson">

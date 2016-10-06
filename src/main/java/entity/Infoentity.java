@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -53,8 +54,8 @@ public class Infoentity implements Serializable {
     @Size(max = 20)
     @Column(name = "typeof")
     private String typeof;
-    @OneToMany(mappedBy = "fkId")
-    private Collection<Address> addressCollection;
+    @ManyToOne
+    private Address address;
     @OneToMany(mappedBy = "fkId")
     private Collection<Phone> phoneCollection;
     @OneToMany(mappedBy = "fkId")
@@ -91,14 +92,14 @@ public class Infoentity implements Serializable {
         this.typeof = typeof;
     }
 
-    @XmlTransient
-    public Collection<Address> getAddressCollection() {
-        return addressCollection;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddressCollection(Collection<Address> addressCollection) {
-        this.addressCollection = addressCollection;
+    public void setAddress(Address address) {
+        this.address = address;
     }
+
 
     @XmlTransient
     public Collection<Phone> getPhoneCollection() {
