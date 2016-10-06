@@ -100,7 +100,6 @@ public class Infoentity implements Serializable {
         this.address = address;
     }
 
-
     @XmlTransient
     public Collection<Phone> getPhoneCollection() {
         return phoneCollection;

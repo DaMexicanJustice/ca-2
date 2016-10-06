@@ -128,14 +128,18 @@ public class Facade implements IFacade {
         EntityManager em = emf.createEntityManager();
         
         TypedQuery<Address> res = em.createNamedQuery("Address.findByfkZipcode", Address.class);
-        List<Address> tmpList = res.setParameter("fkZipcode", zipcode).getResultList();
+        List<Address> addresses = res.setParameter("fkZipcode", zipcode).getResultList();
 
-        System.out.println("AddressList length is " + tmpList.size());
+        System.out.println("AddressList length is " + addresses.size());
         
-        for(Address x : tmpList) {
-            //finalList.add(x.getFkId());
+        for (Address a : addresses) {
+            Collection<Infoentity> people = a.getInfoEntities();
+            for (Infoentity p : people) {
+                if (p instanceof Person) {
+                    finalList.add( (Person) p);
+                }
+            }
         }
-
         return finalList;
     }
 
