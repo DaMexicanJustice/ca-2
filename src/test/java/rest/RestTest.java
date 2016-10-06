@@ -27,7 +27,7 @@ public class RestTest {
         RestAssured.basePath = "/ca-2";
         RestAssured.defaultParser = Parser.JSON;
     }
-    
+
     @Test
     public void testConnection() {
         given().when().get().then().statusCode(200);
@@ -53,7 +53,7 @@ public class RestTest {
         
         //fail("No implementation");
     }
-    
+
     @Test
     public void editCompany() {
         Company c = new Company();

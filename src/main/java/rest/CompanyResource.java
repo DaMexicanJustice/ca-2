@@ -87,9 +87,9 @@ public class CompanyResource {
     public String addCompany(String jsonCompany) throws ValidationErrorException {
         System.out.println("addcompany runs");
         Company company = jsonC.jsonToCompany(jsonCompany);
-        if(company.getId() == null){
-            throw new ValidationErrorException("Company has no id (THIS IS ID - NOT CID)");
-        }
+        if (company.getCname().isEmpty() || company.getCvr().isEmpty()) {
+                throw new ValidationErrorException("Company name or CVR is missing.");
+            }
         Company c = facade.persistCompany(company);
         return jsonC.companyToJSON(c);
     }
