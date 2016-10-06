@@ -352,7 +352,7 @@ INSERT INTO phone(pnum, description, fk_id) VALUES ("12345737", "Cell phone", 60
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 9", "Village that likes the number 9", 60, 1050);
 
 INSERT INTO infoentity (email) VALUES ("a1test10@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, fk_id) VALUES ("76989678", "companyJ","company with the letter j", 110, 125000, 61);  
+INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("18273645", "companyJ","company with the letter j", 110, 125000, 61);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("22322278", "Cell phone", 61);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Village 10", "Village that likes the number 10", 61, 1055);
 
@@ -362,7 +362,7 @@ INSERT INTO phone(pnum, description, fk_id) VALUES ("12345739", "Cell phone", 62
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Mantra", "beatCity", 62, 1061);
 
 INSERT INTO infoentity (email) VALUES ("c23@tester.dk");
-INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("769855678", "companyC","company with the letter j", 110, 125000, 63);  
+INSERT INTO company (cvr, cname, description, no_of_employees, market_value, cid) VALUES ("76985567", "companyC","company with the letter j", 110, 125000, 63);  
 INSERT INTO phone(pnum, description, fk_id) VALUES ("12345740", "Cell phone", 63);
 INSERT INTO address (street, additionalinfo, fk_id, fk_zipcode) VALUES ("Her", "er jeg", 63, 1064);
 
