@@ -105,6 +105,7 @@ public class JSONConverter implements IJSONConverter {
     @Override
     public String companyContactInfoToJSON(Company c) {
         JsonObject job = new JsonObject();
+        job.addProperty("name", c.getCname());
         job.addProperty("email", c.getEmail());
         job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
         job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
@@ -116,6 +117,7 @@ public class JSONConverter implements IJSONConverter {
         Collection<JsonObject> jobs = new ArrayList();
         for (Company c : companies) {
             JsonObject job = new JsonObject();
+            job.addProperty("name", c.getCname());
             job.addProperty("email", c.getEmail());
             job.addProperty("phones", gson.toJson(c.getPhoneCollection()));
             job.addProperty("addresses", gson.toJson(c.getAddressCollection()));
