@@ -62,6 +62,7 @@ public class FacadeTest {
     
     // Mapper skal ændres ti at lave en infoentity som denne afhænger af
     
+    // OK
     /*
     @Test
     public void testPersistCompany() {
@@ -72,13 +73,22 @@ public class FacadeTest {
         
         Facade instance = new Facade(emf);
 
-        c.setCid(0);
         c.setCname("Genereret firma");
         c.setCvr("12345678");
+        c.setDescription("A generated company");
+        c.setNoOfEmployees(5);
+        c.setMarketValue(100);
         
         Company expResult = c;
         
-        Company result = instance.persistCompany(c);
+        Address a = new Address();
+        a.setStreet("Nystræde");
+        a.setAdditionalinfo("Yderligere info");
+        a.setFkZipcode(instance.getCityinfoById("2770"));
+        
+        String email = "detnyefirma@firmaer.dk";
+        
+        Company result = instance.persistCompanyWithAddressAndEmail(c, a, email);
         assertEquals(expResult, result);
         
         // fail("The test case is a prototype.");
@@ -289,7 +299,7 @@ public class FacadeTest {
     }
     */
 
-    // OK
+    // OK ændrer kun navn
     /*
     @Test
     public void testEditCompany() {
@@ -308,6 +318,9 @@ public class FacadeTest {
     }
 */
     
+    // OK
+    
+    /*
     @Test
     public void testDeletePerson() {
         System.out.println("deletePerson");
@@ -324,7 +337,10 @@ public class FacadeTest {
         assertTrue(beforeAmount > afterAmount);
 
     }
-
+    
+    */
+    
+    // OK
     /*
     @Test
     public void testDeleteCompany() {
@@ -334,26 +350,19 @@ public class FacadeTest {
         Facade instance2 = new Facade(emf);
         
         int beforeAmount = instance2.getCompanies().size();
-                
-        Company c2 = new Company();
-        c2.setCid(777);
-        c2.setCname("Nytfirma");
-        c2.setCvr("22123456");
-        instance2.persistCompany(c2);
+        
+        Company deleteMe = instance2.getCompanyByCvr("00987678"); // Dette er ID 60
+        instance2.deleteCompany(deleteMe);
         
         int afterAmount = instance2.getCompanies().size();
         
-        Company deleteMe = instance2.getCompanyByCvr("22123456");
-        instance2.deleteCompany(deleteMe);
-        
-        int afterAmount2 = instance2.getCompanies().size();
-        
-        System.out.println("DELETECOMPANY beforeAmount was " + beforeAmount + " and afterAmount was " + afterAmount + " and afterAmount2 was " + afterAmount2);
-        
         //instance.deleteCompany(c);
-        assertTrue(beforeAmount == afterAmount2 && afterAmount > afterAmount2);
+        assertTrue(beforeAmount > afterAmount);
     }
+    */
     
+    // OK
+    /*
     @Test
     public void testPersistCityinfo() {
         System.out.println("persistCityinfo");
@@ -364,26 +373,45 @@ public class FacadeTest {
         Facade instance = new Facade(emf);
         
         c.setCity("Berlin");
-        c.setZipcode(4444);
+        c.setZip("4444");
         
         Cityinfo result = instance.persistCityinfo(c);
         assertTrue(result != null);
         
         // fail("The test case is a prototype.");
     }
+    */
     
+    // OK
+    
+    /*
     @Test
     public void testDeleteCityinfo() {
-        Cityinfo c = new Cityinfo();
-        
         Facade instance = new Facade(emf);
         
-        c.setCity("Frankfurt");
-        c.setZipcode(9876);
         
-        instance.persistCityinfo(c);
+        Cityinfo c = instance.getCityinfoById("0897");
+        assertTrue(instance.deleteCityinfo(c) != null);
+    }
+*/
+  
+    // OK
+    /*
+    @Test
+    public void testPersistInfoentity() {
+        Facade instance = new Facade(emf);
         
-        instance.deleteCityinfo(c);
+        Infoentity ie = new Infoentity();
+        ie.setEmail("testinfoentity@test.dk");
+        ie.setTypeof("person");
+        ie.setFkAddressid(null);
+        ie.setPhoneCollection(null);
+        
+        Infoentity persistInfoentity = instance.persistInfoentity(ie);
+        
+        System.out.println("Added " + persistInfoentity.getEmail());
+        
+        assertTrue(persistInfoentity.getEmail().equals("testinfoentity@test.dk"));
     }
 */
 }

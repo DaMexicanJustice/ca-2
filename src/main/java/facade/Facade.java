@@ -51,9 +51,25 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public Company persistCompany(Company c) {
+    public Company persistCompanyWithAddressAndEmail(Company c, Address a, String email) {
         EntityManager em = emf.createEntityManager();
+        
+        Facade instance = new Facade(emf);
+        instance.persistAddress(a);
+        
+        
+        Infoentity tmp = new Infoentity();
+        tmp.setEmail(email);
+        tmp.setTypeof("company");
+        tmp.setFkAddressid(a);
+        
+        
         em.getTransaction().begin();
+        em.persist(tmp);
+        em.flush();
+        em.refresh(tmp);
+        System.out.println("company id is " + tmp.getId());
+        c.setCid(tmp.getId());
         em.persist(c);
         em.getTransaction().commit();
         //em.flush();
@@ -251,6 +267,7 @@ public class Facade implements IFacade {
         return c;
     }
 
+    
     @Override
     public Person deletePerson(Person p) {
         EntityManager em = emf.createEntityManager();
@@ -262,11 +279,13 @@ public class Facade implements IFacade {
         em.getTransaction().begin();
         
         int res0 = em.createNativeQuery("SET foreign_key_checks = 0").executeUpdate();
+        
         int res3 = em.createNativeQuery("DELETE FROM Address WHERE addressid=" + tmp.getAddressid()).executeUpdate();
         int res1 = em.createNativeQuery("DELETE FROM Hobby WHERE fk_pid=" + p.getPid()).executeUpdate();
         
         int res4 = em.createNativeQuery("DELETE FROM Infoentity WHERE id=" + p.getPid()).executeUpdate();
         int res2 = em.createNativeQuery("DELETE FROM Person WHERE pid=" + p.getPid()).executeUpdate();
+        
         int res6 = em.createNativeQuery("SET foreign_key_checks = 1").executeUpdate();
         
         em.getTransaction().commit();
@@ -278,9 +297,23 @@ public class Facade implements IFacade {
     public Company deleteCompany(Company c) {
         EntityManager em = emf.createEntityManager();
 
+        Facade instance = new Facade(emf);
+        
         em.getTransaction().begin();
-        int res = em.createQuery("DELETE FROM Company WHERE id=" + c.getId()).executeUpdate();
-        System.out.println("deleteCompany@Facade.java: Updated " + res + " things");
+        
+        Address tmp = instance.getInfoEntityById(c.getCid()).getFkAddressid();
+        
+        System.out.println("Trying to delete " + tmp.getStreet());
+        
+        /*kom her til*/
+        int res0 = em.createNativeQuery("SET foreign_key_checks = 0").executeUpdate();
+        
+        int res1 = em.createNativeQuery("DELETE FROM Company WHERE cid=" + c.getCid()).executeUpdate();
+        int res2 = em.createNativeQuery("DELETE FROM Infoentity WHERE id=" + c.getCid()).executeUpdate();
+        int res3 = em.createNativeQuery("DELETE FROM Address WHERE addressid=" + tmp.getAddressid()).executeUpdate();
+        
+        int res4 = em.createNativeQuery("SET foreign_key_checks = 1").executeUpdate();
+        
         em.getTransaction().commit();
         em.close();
         return c;
@@ -309,8 +342,7 @@ public class Facade implements IFacade {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        int res = em.createQuery("DELETE FROM Cityinfo WHERE zipcode=" + c.getZipcode()).executeUpdate();
-        System.out.println("deleteCityinfo@Facade.java: Updated " + res + " things");
+        int res = em.createNativeQuery("DELETE FROM Cityinfo WHERE ZIP=" + c.getZip()).executeUpdate();
         em.getTransaction().commit();
         em.close();
         return c;
@@ -362,6 +394,18 @@ public class Facade implements IFacade {
         result.setParameter("hobbyName", hobby);
         Hobby h = result.getSingleResult();
         return h.getFkId();
+    }
+    
+    @Override
+    public Infoentity persistInfoentity(Infoentity ie) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.persist(ie);
+        em.getTransaction().commit();
+        em.close();
+
+        return ie;
     }
 
 }

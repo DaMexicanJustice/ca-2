@@ -28,7 +28,9 @@ public interface IFacade {
 
     public Company getCompanyByCvr(String cvr);
 
-    public Company persistCompany(Company c);
+    public Company persistCompanyWithAddressAndEmail(Company c, Address a, String email);
+    
+    public Infoentity persistInfoentity(Infoentity ie);
 
     public List getCompanies();
 
