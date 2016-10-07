@@ -60,8 +60,6 @@ public class FacadeTest {
         assertEquals(result.getCname(), "companyA");
     }
     
-    // Mapper skal ændres ti at lave en infoentity som denne afhænger af
-    
     // OK
     /*
     @Test
@@ -181,40 +179,21 @@ public class FacadeTest {
     }
     
     // ikke testet
-    /*
+    
     @Test
     public void testGetPeopleIn() {
         System.out.println("getPeopleIn");
         
-        Facade instance2 = new Facade(emf);
-        Person tmpP = new Person();
-        tmpP.setFirstName("Kurt");
-        tmpP.setLastName("Koben");
-        tmpP.setPid(313);
-                
-        Cityinfo tmpC = new Cityinfo();
-        tmpC.setCity("Kastrup");
-        tmpC.setZipcode(2770);
+        Facade instance = new Facade(emf);
         
-        Address tmpA = new Address();
-        tmpA.setStreet("Hejsavej 112");
-        tmpA.setFkId(tmpP);
-        tmpA.setFkZipcode(tmpC);
-        
-        instance2.persistPerson(tmpP);
-        instance2.persistCityinfo(tmpC);
-        instance2.persistAddress(tmpA);
-        
-        List<Person> result = instance2.getPeopleIn(2770);
+        List<Person> result = instance.getPeopleIn(instance.getCityinfoById("1000"));
         System.out.println("testGetPeopleIn result size is " + result.size());
         System.out.println(result);
         
-        assertTrue(result != null && result.size() > 0);
-        
-        //fail("The test case is a prototype.");
+
+        assertTrue(result.size() > 0);
     }
 
-    */
     
     // Virker men ligesom company - skal bruge infoentity
     /*

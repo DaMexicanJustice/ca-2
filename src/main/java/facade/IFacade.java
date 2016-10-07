@@ -44,7 +44,7 @@ public interface IFacade {
 
     public List getPeople();
 
-    public List<Person> getPeopleIn(int zipcode);
+    public List<Person> getPeopleIn(Cityinfo zipcode);
 
     public List getPhonesById(int id);
 

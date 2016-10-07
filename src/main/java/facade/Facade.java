@@ -138,27 +138,32 @@ public class Facade implements IFacade {
         return people;
     }
 
+    // OK
+    /*
     @Override
-    public List<Person> getPeopleIn(int zipcode) {
+    public List<Person> getPeopleIn(Cityinfo zipcode) {
         List<Person> finalList = new ArrayList<>();
+        
+        Facade instance = new Facade(emf);
 
         EntityManager em = emf.createEntityManager();
 
-        TypedQuery<Address> res = em.createNamedQuery("Address.findByfkZipcode", Address.class);
+        TypedQuery<Address> res = em.createNamedQuery("Address.findByZip", Address.class);
         List<Address> addresses = res.setParameter("fkZipcode", zipcode).getResultList();
 
         System.out.println("AddressList length is " + addresses.size());
 
         for (Address a : addresses) {
-            Collection<Infoentity> people = a.getInfoEntities();
+            Collection<Infoentity> people = a.getInfoentityCollection();
             for (Infoentity p : people) {
-                if (p instanceof Person) {
-                    finalList.add((Person) p);
+                if (p.getTypeof().equals("person")) {
+                    finalList.add(instance.getPersonById(p.getId()));
                 }
             }
         }
         return finalList;
     }
+    */
 
     @Override
     public Person persistPerson(Person p) {
