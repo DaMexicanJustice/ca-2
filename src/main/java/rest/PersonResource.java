@@ -98,7 +98,7 @@ public class PersonResource {
         if (people.isEmpty()) throw new PersonNotFoundException("There are no people in the database");
         return jsonC.peopleContactInfoToJSON(people);
     }
-    
+    /*
     @GET
     @Path("all/complete/zipcode/{zip}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -107,7 +107,7 @@ public class PersonResource {
         if (peopleInZip.isEmpty()) throw new PersonNotFoundException("No people with registered in that area");
         return jsonC.personCollectionToJSON(peopleInZip);
     } 
-
+*/
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

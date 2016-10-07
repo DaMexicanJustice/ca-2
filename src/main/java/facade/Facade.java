@@ -376,7 +376,7 @@ public class Facade implements IFacade {
         Collection<Company> companies = result.getResultList();
         return companies;
     }
-
+/*
     @Override
     public Collection getPeopleByHobby(String hobby) {
         EntityManager em = emf.createEntityManager();
@@ -398,7 +398,7 @@ public class Facade implements IFacade {
         Hobby h = result.getSingleResult();
         return h.getFkId();
     }
-    
+  */  
     @Override
     public Infoentity persistInfoentity(Infoentity ie) {
         EntityManager em = emf.createEntityManager();

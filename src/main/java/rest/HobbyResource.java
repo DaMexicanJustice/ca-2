@@ -49,7 +49,7 @@ public class HobbyResource {
     public String getText() {
         return "Hello from Hobby Ressource";
     }
-
+/*
     @GET
     @Path("single/{hobby}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -73,4 +73,5 @@ public class HobbyResource {
         }
         return jsonC.personCollectionToJSON(people);
     }
+*/
 }

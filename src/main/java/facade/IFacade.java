@@ -71,8 +71,9 @@ public interface IFacade {
     public Collection getAllZipCodes();
     
     public Collection getCompaniesWithPopulationGreaterThan(int minPop);
-    
+    /*
     public Collection getPeopleByHobby(String hobby);
     
     public Person getPersonByHobby(String hobby);
+*/
 }

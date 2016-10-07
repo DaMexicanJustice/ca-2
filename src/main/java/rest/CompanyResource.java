@@ -81,7 +81,7 @@ public class CompanyResource {
         if(allCompanies.isEmpty()) throw new CompanyNotFoundException("No companies registered in database");
         return jsonC.companiesContactInfoToJSON(allCompanies);
     }
-
+/*
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -94,7 +94,7 @@ public class CompanyResource {
         Company c = facade.persistCompany(company);
         return jsonC.companyToJSON(c);
     }
-
+*/
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public String editCompany(String jsonCompany) throws CompanyNotFoundException, ValidationErrorException {
