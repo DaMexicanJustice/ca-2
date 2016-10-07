@@ -138,8 +138,7 @@ public class Facade implements IFacade {
         return people;
     }
 
-    // OK
-    /*
+
     @Override
     public List<Person> getPeopleIn(Cityinfo zipcode) {
         List<Person> finalList = new ArrayList<>();
@@ -163,7 +162,6 @@ public class Facade implements IFacade {
         }
         return finalList;
     }
-    */
 
     @Override
     public Person persistPerson(Person p) {

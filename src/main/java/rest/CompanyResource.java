@@ -64,6 +64,7 @@ public class CompanyResource {
     @Path("comp/all/{cvr}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getCompanyByCvr(@PathParam("cvr") String cvr) throws CompanyNotFoundException {
+        System.out.println("trying to get company @ " + cvr);
         try {
             Company company = facade.getCompanyByCvr(cvr);
             return jsonC.companyToJSON(company);

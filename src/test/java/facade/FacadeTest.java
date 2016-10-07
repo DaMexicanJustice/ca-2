@@ -37,7 +37,7 @@ public class FacadeTest {
     
     public FacadeTest() {
     }
-
+/*
     @Test
     public void testGetAddressById() {
         System.out.println("getAddressById");
@@ -59,9 +59,9 @@ public class FacadeTest {
         Company result = instance.getCompanyByCvr(cvr);
         assertEquals(result.getCname(), "companyA");
     }
-    
+  */  
     // OK
-    /*
+    
     @Test
     public void testPersistCompany() {
         System.out.println("persistCompany");
@@ -91,7 +91,7 @@ public class FacadeTest {
         
         // fail("The test case is a prototype.");
     }
-    */
+    /*
 
     
     @Test
@@ -120,7 +120,7 @@ public class FacadeTest {
         assertTrue(result.get(0).getHobbyName().equals("Gaming"));
     }
     
-    
+    */
     // Ser ud til at virke ok
     /*
     @Test
@@ -139,7 +139,7 @@ public class FacadeTest {
         Hobby result = instance.persistHobby(h);
         assertEquals(h, result);
     }
-    */
+    
 
     
     @Test
@@ -165,7 +165,8 @@ public class FacadeTest {
         //assertTrue(result != null && result.getId() == 7);
         //fail("The test case is a prototype.");
     }
-
+*/
+    /*
     @Test
     public void testGetPeople() {
         System.out.println("getPeople");
@@ -177,9 +178,9 @@ public class FacadeTest {
         assertTrue(result.size() != 0);
         //fail("The test case is a prototype.");
     }
-    
+    */
     // ikke testet
-    
+    /*
     @Test
     public void testGetPeopleIn() {
         System.out.println("getPeopleIn");
@@ -194,8 +195,8 @@ public class FacadeTest {
         assertTrue(result.size() > 0);
     }
 
-    
-    // Virker men ligesom company - skal bruge infoentity
+    */
+    // SKAL RETTES -- BRUG IKKE (Skal laves om til at bruge infoentity)
     /*
     @Test
     public void testPersistPerson() {
@@ -213,7 +214,7 @@ public class FacadeTest {
     }
 
     */
-    
+    /*
     @Test
     public void testGetPhonesById() {
         System.out.println("getPhonesById");
@@ -226,9 +227,9 @@ public class FacadeTest {
         
         //fail("The test case is a prototype.");
     }
-
+*/
     
-    // Virker men skal bruge infoentity
+    // SKAL RETTES -- BRUG IKKE (Skal laves om til at bruge infoentity)
     /*
     @Test
     public void testPersistPhone() {
@@ -295,8 +296,8 @@ public class FacadeTest {
         
         //fail("The test case is a prototype.");
     }
-*/
-    
+
+    */
     // OK
     
     /*
@@ -338,8 +339,8 @@ public class FacadeTest {
         //instance.deleteCompany(c);
         assertTrue(beforeAmount > afterAmount);
     }
-    */
     
+    */
     // OK
     /*
     @Test
@@ -362,20 +363,20 @@ public class FacadeTest {
     */
     
     // OK
-    
     /*
+    
     @Test
     public void testDeleteCityinfo() {
         Facade instance = new Facade(emf);
         
         
-        Cityinfo c = instance.getCityinfoById("0897");
+        Cityinfo c = instance.getCityinfoById("0800");
         assertTrue(instance.deleteCityinfo(c) != null);
     }
 */
   
     // OK
-    /*
+    
     @Test
     public void testPersistInfoentity() {
         Facade instance = new Facade(emf);
@@ -392,5 +393,4 @@ public class FacadeTest {
         
         assertTrue(persistInfoentity.getEmail().equals("testinfoentity@test.dk"));
     }
-*/
 }
