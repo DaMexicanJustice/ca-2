@@ -36,10 +36,10 @@ public class Phone implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 1, max = 8)
     @Column(name = "pnum")
     private String pnum;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "description")
     private String description;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")

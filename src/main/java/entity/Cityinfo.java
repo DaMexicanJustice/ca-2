@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cityinfo.findAll", query = "SELECT c FROM Cityinfo c"),
-    @NamedQuery(name = "Cityinfo.findByZipcode", query = "SELECT c FROM Cityinfo c WHERE c.zipcode = :zipcode"),
+    @NamedQuery(name = "Cityinfo.findByZip", query = "SELECT c FROM Cityinfo c WHERE c.zip = :zip"),
     @NamedQuery(name = "Cityinfo.findByCity", query = "SELECT c FROM Cityinfo c WHERE c.city = :city")})
 public class Cityinfo implements Serializable {
 
@@ -37,10 +37,11 @@ public class Cityinfo implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "zipcode")
-    private Integer zipcode;
-    @Size(max = 255)
-    @Column(name = "city")
+    @Size(min = 1, max = 5)
+    @Column(name = "ZIP")
+    private String zip;
+    @Size(max = 50)
+    @Column(name = "CITY")
     private String city;
     @OneToMany(mappedBy = "fkZipcode")
     private Collection<Address> addressCollection;
@@ -48,16 +49,16 @@ public class Cityinfo implements Serializable {
     public Cityinfo() {
     }
 
-    public Cityinfo(Integer zipcode) {
-        this.zipcode = zipcode;
+    public Cityinfo(String zip) {
+        this.zip = zip;
     }
 
-    public Integer getZipcode() {
-        return zipcode;
+    public String getZip() {
+        return zip;
     }
 
-    public void setZipcode(Integer zipcode) {
-        this.zipcode = zipcode;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
     public String getCity() {
@@ -80,7 +81,7 @@ public class Cityinfo implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (zipcode != null ? zipcode.hashCode() : 0);
+        hash += (zip != null ? zip.hashCode() : 0);
         return hash;
     }
 
@@ -91,7 +92,7 @@ public class Cityinfo implements Serializable {
             return false;
         }
         Cityinfo other = (Cityinfo) object;
-        if ((this.zipcode == null && other.zipcode != null) || (this.zipcode != null && !this.zipcode.equals(other.zipcode))) {
+        if ((this.zip == null && other.zip != null) || (this.zip != null && !this.zip.equals(other.zip))) {
             return false;
         }
         return true;
@@ -99,7 +100,7 @@ public class Cityinfo implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Cityinfo[ zipcode=" + zipcode + " ]";
+        return "entity.Cityinfo[ zip=" + zip + " ]";
     }
     
 }

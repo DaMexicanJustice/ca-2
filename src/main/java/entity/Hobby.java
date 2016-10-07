@@ -30,8 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h"),
     @NamedQuery(name = "Hobby.findByHobbyid", query = "SELECT h FROM Hobby h WHERE h.hobbyid = :hobbyid"),
-    @NamedQuery(name = "Hobby.findByDescription", query = "SELECT h FROM Hobby h WHERE h.description = :description"),
-    @NamedQuery(name = "Hobby.findByHobbyName", query = "SELECT h FROM Hobby h WHERE h.hobbyName = :hobbyName")})
+    @NamedQuery(name = "Hobby.findByHobbyName", query = "SELECT h FROM Hobby h WHERE h.hobbyName = :hobbyName"),
+    @NamedQuery(name = "Hobby.findByDescription", query = "SELECT h FROM Hobby h WHERE h.description = :description")})
 public class Hobby implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,15 +40,15 @@ public class Hobby implements Serializable {
     @Basic(optional = false)
     @Column(name = "hobbyid")
     private Integer hobbyid;
-    @Size(max = 255)
-    @Column(name = "description")
-    private String description;
-    @Size(max = 255)
+    @Size(max = 40)
     @Column(name = "hobbyName")
     private String hobbyName;
-    @JoinColumn(name = "fk_id", referencedColumnName = "id")
+    @Size(max = 100)
+    @Column(name = "description")
+    private String description;
+    @JoinColumn(name = "fk_pid", referencedColumnName = "pid")
     @ManyToOne
-    private Infoentity fkId;
+    private Person fkPid;
 
     public Hobby() {
     }
@@ -65,14 +65,6 @@ public class Hobby implements Serializable {
         this.hobbyid = hobbyid;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getHobbyName() {
         return hobbyName;
     }
@@ -81,12 +73,20 @@ public class Hobby implements Serializable {
         this.hobbyName = hobbyName;
     }
 
-    public Infoentity getFkId() {
-        return fkId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setFkId(Infoentity fkId) {
-        this.fkId = fkId;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Person getFkPid() {
+        return fkPid;
+    }
+
+    public void setFkPid(Person fkPid) {
+        this.fkPid = fkPid;
     }
 
     @Override

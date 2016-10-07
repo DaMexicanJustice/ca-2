@@ -42,11 +42,6 @@ public class FacadeTest {
     public void testGetAddressById() {
         System.out.println("getAddressById");
         
-        Facade instance2 = new Facade(emf);
-        Address a1 = new Address();
-        a1.setStreet("Fiskestræde");
-        instance2.persistAddress(a1);
-        
         Facade instance = new Facade(emf);
         Address result = instance.getAddressById(1);
         assertTrue(result != null && result.getAddressid() == 1);
@@ -54,22 +49,15 @@ public class FacadeTest {
         //fail("The test case is a prototype.");
     }
     
+    
     @Test
     public void testGetCompanyByCvr() {
         System.out.println("getCompanyByCvr");
         
-        Facade instance2 = new Facade(emf);
-        Company c2 = new Company();
-        c2.setCid(145);
-        c2.setCname("Mælkehuset");
-        c2.setCvr("000000");
-        instance2.persistCompany(c2);
-        
-        String cvr = "000000";
+        String cvr = "76787678";
         Facade instance = new Facade(emf);
         Company result = instance.getCompanyByCvr(cvr);
-        assertEquals(result.getCname(), "Mælkehuset");
-        //fail("The test case is a prototype.");
+        assertEquals(result.getCname(), "companyA");
     }
     
     @Test
@@ -80,10 +68,10 @@ public class FacadeTest {
         
         
         Facade instance = new Facade(emf);
-        
-        c.setCid(1);
-        c.setCname("The company");
-        c.setCvr("123456");
+
+        c.setCid(0);
+        c.setCname("Genereret firma");
+        c.setCvr("12345678");
         
         Company expResult = c;
         
@@ -93,6 +81,7 @@ public class FacadeTest {
         // fail("The test case is a prototype.");
     }
 
+    /*
     @Test
     public void testGetCompanies() {
         System.out.println("getCompanies");
@@ -405,5 +394,5 @@ public class FacadeTest {
         
         instance.deleteCityinfo(c);
     }
-
+*/
 }
