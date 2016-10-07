@@ -61,7 +61,7 @@ public class FacadeTest {
     }
   */  
     // OK
-    
+    /*
     @Test
     public void testPersistCompany() {
         System.out.println("persistCompany");
@@ -91,6 +91,7 @@ public class FacadeTest {
         
         // fail("The test case is a prototype.");
     }
+    */
     /*
 
     
@@ -376,7 +377,7 @@ public class FacadeTest {
 */
   
     // OK
-    
+    /*
     @Test
     public void testPersistInfoentity() {
         Facade instance = new Facade(emf);
@@ -393,4 +394,5 @@ public class FacadeTest {
         
         assertTrue(persistInfoentity.getEmail().equals("testinfoentity@test.dk"));
     }
+*/
 }
