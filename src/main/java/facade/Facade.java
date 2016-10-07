@@ -107,8 +107,8 @@ public class Facade implements IFacade {
     @Override
     public Person getPersonById(int id) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Person> result = em.createNamedQuery("Person.findByID", Person.class);
-        Person tmp = result.setParameter("id", id).getSingleResult();
+        TypedQuery<Person> result = em.createNamedQuery("Person.findByPid", Person.class);
+        Person tmp = result.setParameter("pid", id).getSingleResult();
         em.close();
         return tmp;
     }
