@@ -238,6 +238,8 @@ public class FacadeTest {
         //fail("The test case is a prototype.");
     }
 
+    
+    // Virker men skal bruge infoentity
     /*
     @Test
     public void testPersistPhone() {
@@ -248,62 +250,63 @@ public class FacadeTest {
         Phone p = new Phone();
         p.setPnum("22446688");
         p.setDescription("Meget interessant telefon");
+        p.setFkId(null);
         Phone result = instance2.persistPhone(p);
         
         assertEquals(result, p);
     }
+    */
 
+    
+    // OK
+    /*
     @Test
     public void testPersistAddress() {
         Facade instance2 = new Facade(emf);
         Address a = new Address();
-        a.setStreet("Fladestræde");
+        a.setStreet("Torskestræde");
+        a.setFkZipcode(instance2.getCityinfoById("2770"));
+        a.setAdditionalinfo("Dette er torskestræde");
         Address result = instance2.persistAddress(a);
         
         assertEquals(result, a);
     }
+    */
 
+    // OK -- Ændrer ikke telefoncolection osv
+    /*
     @Test
     public void testEditPerson() {
-        System.out.println("###########################");
         System.out.println("editPerson");
         
         Facade instance2 = new Facade(emf);
-        Person p2 = new Person();
-        p2.setFirstName("Rediger");
-        p2.setLastName("Mig");
-        p2.setPid(4);
-        instance2.persistPerson(p2);
-        
         Person up = new Person();
         up.setFirstName("Successfully edited");
         
-        instance2.editPerson(p2, up);
+        instance2.editPerson(instance2.getPersonById(51), up);
         
-        assertTrue(p2.getFirstName().equals("Successfully edited"));
+        assertTrue(instance2.getPersonById(51).getFirstName().equals("Successfully edited"));
     }
+    */
 
+    // OK
+    /*
     @Test
     public void testEditCompany() {
         System.out.println("editCompany");
         
         Facade instance2 = new Facade(emf);
-        Company c2 = new Company();
-        c2.setCid(123);
-        c2.setCname("Editme");
-        c2.setCvr("01928374");
-        instance2.persistCompany(c2);
         
         Company uc = new Company();
-        uc.setCname("Edited name");
+        uc.setCname("Edited company");
         
-        instance2.editCompany(c2, uc);
+        instance2.editCompany(instance2.getCompanyByCvr("76989128"), uc); // 76989128 er cid 62
         
-        assertTrue(c2.getCname().equals("Edited name"));
+        assertTrue(instance2.getCompanyByCvr("76989128").getCname().equals("Edited company"));
         
         //fail("The test case is a prototype.");
     }
-
+*/
     
     @Test
     public void testDeletePerson() {
@@ -313,25 +316,16 @@ public class FacadeTest {
         
         int beforeAmount = instance2.getPeople().size();
         
-        Person p2 = new Person();
-        p2.setFirstName("Mogens");
-        p2.setLastName("Glistrup");
-        p2.setPid(11);
-        instance2.persistPerson(p2);
-        
+        Person deleteMe = instance2.getPersonById(50); // id 50 er Lotte
+        instance2.deletePerson(deleteMe);
+                
         int afterAmount = instance2.getPeople().size();
         
-        Person deleteMe = instance2.getPersonById(p2.getId());
-        instance2.deletePerson(p2);
-                
-        int afterAmount2 = instance2.getPeople().size();
-        
-        //System.out.println("DELETEPERSON beforeAmount was " + beforeAmount + " and afterAmount was " + afterAmount + " and afterAmount2 was " + afterAmount2);
-        
-        assertTrue(beforeAmount == afterAmount2 && afterAmount > afterAmount2);
-        //fail("The test case is a prototype.");
+        assertTrue(beforeAmount > afterAmount);
+
     }
 
+    /*
     @Test
     public void testDeleteCompany() {
         System.out.println("deleteCompany");

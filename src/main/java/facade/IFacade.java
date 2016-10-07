@@ -64,7 +64,7 @@ public interface IFacade {
     
     public Cityinfo deleteCityinfo(Cityinfo c);
     
-    public Cityinfo getCityinfoById(int id);
+    public Cityinfo getCityinfoById(String zip);
     
     public Collection getAllZipCodes();
     
