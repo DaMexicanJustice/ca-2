@@ -8,11 +8,12 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,46 +21,60 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author xboxm
+ * @author Lasse
  */
 @Entity
 @Table(name = "company")
-@DiscriminatorValue("company")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c"),
+    @NamedQuery(name = "Company.findById", query = "SELECT c FROM Company c WHERE c.id = :id"),
     @NamedQuery(name = "Company.findByCid", query = "SELECT c FROM Company c WHERE c.cid = :cid"),
-    @NamedQuery(name = "Company.findByCvr", query = "SELECT c FROM Company c WHERE c.cvr = :cvr"),
     @NamedQuery(name = "Company.findByCname", query = "SELECT c FROM Company c WHERE c.cname = :cname"),
+    @NamedQuery(name = "Company.findByCvr", query = "SELECT c FROM Company c WHERE c.cvr = :cvr"),
     @NamedQuery(name = "Company.findByDescription", query = "SELECT c FROM Company c WHERE c.description = :description"),
-    @NamedQuery(name = "Company.findByNoOfEmployees", query = "SELECT c FROM Company c WHERE c.noOfEmployees >= :noOfEmployees"),
-    @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue")})
-public class Company extends Infoentity implements Serializable {
+    @NamedQuery(name = "Company.findByMarketValue", query = "SELECT c FROM Company c WHERE c.marketValue = :marketValue"),
+    @NamedQuery(name = "Company.findByNoOfEmployees", query = "SELECT c FROM Company c WHERE c.noOfEmployees = :noOfEmployees")})
+public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
     @Basic(optional = false)
     @NotNull
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "cid")
     private Integer cid;
-    @Size(max = 8)
-    @Column(name = "cvr")
-    private String cvr;
-    @Size(max = 100)
+    @Size(max = 255)
     @Column(name = "cname")
     private String cname;
-    @Size(max = 200)
+    @Size(max = 255)
+    @Column(name = "cvr")
+    private String cvr;
+    @Size(max = 255)
     @Column(name = "description")
     private String description;
-    @Column(name = "no_of_employees")
-    private Integer noOfEmployees;
     @Column(name = "market_value")
     private Integer marketValue;
+    @Column(name = "no_of_employees")
+    private Integer noOfEmployees;
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Infoentity infoentity;
 
     public Company() {
     }
 
-    public Company(Integer cid) {
-        this.cid = cid;
+    public Company(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getCid() {
@@ -70,20 +85,20 @@ public class Company extends Infoentity implements Serializable {
         this.cid = cid;
     }
 
-    public String getCvr() {
-        return cvr;
-    }
-
-    public void setCvr(String cvr) {
-        this.cvr = cvr;
-    }
-
     public String getCname() {
         return cname;
     }
 
     public void setCname(String cname) {
         this.cname = cname;
+    }
+
+    public String getCvr() {
+        return cvr;
+    }
+
+    public void setCvr(String cvr) {
+        this.cvr = cvr;
     }
 
     public String getDescription() {
@@ -94,14 +109,6 @@ public class Company extends Infoentity implements Serializable {
         this.description = description;
     }
 
-    public Integer getNoOfEmployees() {
-        return noOfEmployees;
-    }
-
-    public void setNoOfEmployees(Integer noOfEmployees) {
-        this.noOfEmployees = noOfEmployees;
-    }
-
     public Integer getMarketValue() {
         return marketValue;
     }
@@ -110,10 +117,26 @@ public class Company extends Infoentity implements Serializable {
         this.marketValue = marketValue;
     }
 
+    public Integer getNoOfEmployees() {
+        return noOfEmployees;
+    }
+
+    public void setNoOfEmployees(Integer noOfEmployees) {
+        this.noOfEmployees = noOfEmployees;
+    }
+
+    public Infoentity getInfoentity() {
+        return infoentity;
+    }
+
+    public void setInfoentity(Infoentity infoentity) {
+        this.infoentity = infoentity;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cid != null ? cid.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -124,7 +147,7 @@ public class Company extends Infoentity implements Serializable {
             return false;
         }
         Company other = (Company) object;
-        if ((this.cid == null && other.cid != null) || (this.cid != null && !this.cid.equals(other.cid))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -132,7 +155,7 @@ public class Company extends Infoentity implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Company[ cid=" + cid + " ]";
+        return "entity.Company[ id=" + id + " ]";
     }
     
 }

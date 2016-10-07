@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author xboxm
+ * @author Lasse
  */
 @Entity
 @Table(name = "hobby")
@@ -30,8 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h"),
     @NamedQuery(name = "Hobby.findByHobbyid", query = "SELECT h FROM Hobby h WHERE h.hobbyid = :hobbyid"),
-    @NamedQuery(name = "Hobby.findByHobbyName", query = "SELECT h FROM Hobby h WHERE h.hobbyName = :hobbyName"),
-    @NamedQuery(name = "Hobby.findByDescription", query = "SELECT h FROM Hobby h WHERE h.description = :description")})
+    @NamedQuery(name = "Hobby.findByDescription", query = "SELECT h FROM Hobby h WHERE h.description = :description"),
+    @NamedQuery(name = "Hobby.findByHobbyName", query = "SELECT h FROM Hobby h WHERE h.hobbyName = :hobbyName")})
 public class Hobby implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,15 +40,15 @@ public class Hobby implements Serializable {
     @Basic(optional = false)
     @Column(name = "hobbyid")
     private Integer hobbyid;
-    @Size(max = 40)
-    @Column(name = "hobbyName")
-    private String hobbyName;
-    @Size(max = 100)
+    @Size(max = 255)
     @Column(name = "description")
     private String description;
+    @Size(max = 255)
+    @Column(name = "hobbyName")
+    private String hobbyName;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
     @ManyToOne
-    private Person fkId;
+    private Infoentity fkId;
 
     public Hobby() {
     }
@@ -65,14 +65,6 @@ public class Hobby implements Serializable {
         this.hobbyid = hobbyid;
     }
 
-    public String getHobbyName() {
-        return hobbyName;
-    }
-
-    public void setHobbyName(String hobbyName) {
-        this.hobbyName = hobbyName;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -81,11 +73,19 @@ public class Hobby implements Serializable {
         this.description = description;
     }
 
-    public Person getFkId() {
+    public String getHobbyName() {
+        return hobbyName;
+    }
+
+    public void setHobbyName(String hobbyName) {
+        this.hobbyName = hobbyName;
+    }
+
+    public Infoentity getFkId() {
         return fkId;
     }
 
-    public void setFkId(Person fkId) {
+    public void setFkId(Infoentity fkId) {
         this.fkId = fkId;
     }
 

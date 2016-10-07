@@ -5,7 +5,6 @@
  */
 package entity;
 
-import static entity.deploy.Hobby_.fkId;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -15,10 +14,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,17 +26,16 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author xboxm
+ * @author Lasse
  */
 @Entity
 @Table(name = "address")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Address.findByfkZipcode", query = "SELECT a FROM Address a WHERE a.fkZipcode = :fkZipcode"),
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a"),
     @NamedQuery(name = "Address.findByAddressid", query = "SELECT a FROM Address a WHERE a.addressid = :addressid"),
-    @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"),
-    @NamedQuery(name = "Address.findByAdditionalinfo", query = "SELECT a FROM Address a WHERE a.additionalinfo = :additionalinfo")})
+    @NamedQuery(name = "Address.findByAdditionalinfo", query = "SELECT a FROM Address a WHERE a.additionalinfo = :additionalinfo"),
+    @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street")})
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,17 +44,23 @@ public class Address implements Serializable {
     @Basic(optional = false)
     @Column(name = "addressid")
     private Integer addressid;
-    @Size(max = 40)
-    @Column(name = "street")
-    private String street;
-    @Size(max = 200)
+    @Size(max = 255)
     @Column(name = "additionalinfo")
     private String additionalinfo;
+    @Size(max = 255)
+    @Column(name = "street")
+    private String street;
+    @JoinTable(name = "address_infoentity", joinColumns = {
+        @JoinColumn(name = "Address_addressid", referencedColumnName = "addressid")}, inverseJoinColumns = {
+        @JoinColumn(name = "infoEntities_id", referencedColumnName = "id")})
+    @ManyToMany
+    private Collection<Infoentity> infoentityCollection;
+    @JoinColumn(name = "fk_id", referencedColumnName = "id")
+    @ManyToOne
+    private Infoentity fkId;
     @JoinColumn(name = "fk_zipcode", referencedColumnName = "zipcode")
     @ManyToOne
     private Cityinfo fkZipcode;
-    @OneToMany
-    private Collection<Infoentity> infoEntities;
 
     public Address() {
     }
@@ -72,6 +77,14 @@ public class Address implements Serializable {
         this.addressid = addressid;
     }
 
+    public String getAdditionalinfo() {
+        return additionalinfo;
+    }
+
+    public void setAdditionalinfo(String additionalinfo) {
+        this.additionalinfo = additionalinfo;
+    }
+
     public String getStreet() {
         return street;
     }
@@ -80,12 +93,21 @@ public class Address implements Serializable {
         this.street = street;
     }
 
-    public String getAdditionalinfo() {
-        return additionalinfo;
+    @XmlTransient
+    public Collection<Infoentity> getInfoentityCollection() {
+        return infoentityCollection;
     }
 
-    public void setAdditionalinfo(String additionalinfo) {
-        this.additionalinfo = additionalinfo;
+    public void setInfoentityCollection(Collection<Infoentity> infoentityCollection) {
+        this.infoentityCollection = infoentityCollection;
+    }
+
+    public Infoentity getFkId() {
+        return fkId;
+    }
+
+    public void setFkId(Infoentity fkId) {
+        this.fkId = fkId;
     }
 
     public Cityinfo getFkZipcode() {
@@ -95,16 +117,6 @@ public class Address implements Serializable {
     public void setFkZipcode(Cityinfo fkZipcode) {
         this.fkZipcode = fkZipcode;
     }
-    
-    @XmlTransient
-    public Collection<Infoentity> getInfoEntities() {
-        return infoEntities;
-    }
-
-    public void setInfoEntities(Collection<Infoentity> infoEntities) {
-        this.infoEntities = infoEntities;
-    }
-
 
     @Override
     public int hashCode() {

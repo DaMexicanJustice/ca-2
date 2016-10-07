@@ -32,7 +32,7 @@ public class FacadeTest {
     //  3   Set persistence for TEST til CREATE
     //  4   Kør resttest
     
-    /*
+    
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
     
     public FacadeTest() {
@@ -405,5 +405,5 @@ public class FacadeTest {
         
         instance.deleteCityinfo(c);
     }
-*/
+
 }

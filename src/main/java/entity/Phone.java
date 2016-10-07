@@ -21,13 +21,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author xboxm
+ * @author Lasse
  */
 @Entity
 @Table(name = "phone")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Phone.findById", query = "SELECT p FROM Phone p WHERE p.fkId = :fkId"),
     @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p"),
     @NamedQuery(name = "Phone.findByPnum", query = "SELECT p FROM Phone p WHERE p.pnum = :pnum"),
     @NamedQuery(name = "Phone.findByDescription", query = "SELECT p FROM Phone p WHERE p.description = :description")})
@@ -37,10 +36,10 @@ public class Phone implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 8)
+    @Size(min = 1, max = 255)
     @Column(name = "pnum")
     private String pnum;
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(name = "description")
     private String description;
     @JoinColumn(name = "fk_id", referencedColumnName = "id")
