@@ -108,6 +108,18 @@ public class Company implements Serializable {
     public void setMarketValue(Integer marketValue) {
         this.marketValue = marketValue;
     }
+    
+    public String getEmail() {
+        return "";
+    }
+
+    public Object getPhoneCollection() {
+        return null;
+    }
+
+    public Object getAddress() {
+        return null;
+    }
 
     @Override
     public int hashCode() {
@@ -133,5 +145,6 @@ public class Company implements Serializable {
     public String toString() {
         return "entity.Company[ cid=" + cid + " ]";
     }
+
     
 }

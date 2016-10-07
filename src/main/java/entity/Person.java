@@ -88,6 +88,18 @@ public class Person implements Serializable {
     public void setHobbyCollection(Collection<Hobby> hobbyCollection) {
         this.hobbyCollection = hobbyCollection;
     }
+    
+    public String getEmail() {
+        return "";
+    }
+    
+    public Object getPhoneCollection() {
+        return null;
+    }
+
+    public Object getAddress() {
+        return null;
+    }
 
     @Override
     public int hashCode() {
@@ -113,5 +125,7 @@ public class Person implements Serializable {
     public String toString() {
         return "entity.Person[ pid=" + pid + " ]";
     }
+
+
     
 }
